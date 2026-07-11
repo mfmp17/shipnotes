@@ -1,0 +1,30 @@
+{
+  "name": "shipnotes",
+  "version": "0.1.0",
+  "description": "Turn your git history into polished, customer-facing release notes.",
+  "type": "module",
+  "bin": {
+    "shipnotes": "./bin/shipnotes.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "changelog",
+    "release-notes",
+    "git",
+    "cli"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.110.0"
+  }
+}

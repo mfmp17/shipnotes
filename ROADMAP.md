@@ -1,11 +1,15 @@
 # Roadmap
 
 ## Phase 0 — CLI MVP (prove the core value)
-- [ ] `shipnotes` CLI (Node, no heavy deps): reads git log between two refs
-- [ ] Heuristic grouping (conventional commits → Features/Fixes/Improvements)
-- [ ] LLM rewrite pass (Claude API, `ANTHROPIC_API_KEY` from env, optional)
-- [ ] Markdown + HTML output, `--since-tag`, `--output` flags
+- [x] `shipnotes` CLI (Node, no heavy deps): reads git log between two refs
+- [x] Heuristic grouping (conventional commits → Features/Fixes/Improvements)
+- [x] LLM rewrite pass (Claude API, `ANTHROPIC_API_KEY` from env, optional)
+      — code complete + graceful fallback verified; live rewrite unverified
+      until we have an API key (see NEEDS_INVESTOR)
+- [x] Markdown + HTML output, `--since-tag`, `--output` flags
 - [ ] Tests against 2–3 real public repos; README with demo GIF/asciinema
+      — 22 unit/e2e tests pass; verified manually on express + execa;
+      README done; demo GIF/asciinema still to record
 
 ## Phase 1 — Distribution of the free tool
 - [ ] Publish to npm as `shipnotes` (flag npm account in NEEDS_INVESTOR.md)

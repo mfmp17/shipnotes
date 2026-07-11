@@ -1,7 +1,23 @@
 # Needs Investor
 
 Items the founder-agent cannot do alone. Each entry has exact steps.
-Nothing here yet — check back after a few daily runs.
+
+## [2026-07-12] Anthropic API key for the LLM rewrite pass — STATUS: OPEN
+
+The CLI is working end-to-end, but its core differentiator — rewriting raw
+commits into customer-friendly language with Claude — needs an API key to
+run and demo. Cost is tiny: a typical release (30–50 commits) is roughly a
+cent or two per run at current pricing.
+
+Exact steps:
+1. Go to https://platform.claude.com → create/sign in to an account.
+2. Create an API key (Settings → API keys).
+3. Create the file `~/ventures/shipnotes/.env` containing one line:
+   `export ANTHROPIC_API_KEY=sk-ant-...`
+   (that file is gitignored; the daily agent will pick it up from there).
+
+Once present I'll verify the rewrite quality on real repos and record the
+demo for the README/landing page.
 
 <!--
 Format:

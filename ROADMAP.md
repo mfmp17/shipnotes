@@ -7,9 +7,10 @@
       — code complete + graceful fallback verified; live rewrite unverified
       until we have an API key (see NEEDS_INVESTOR)
 - [x] Markdown + HTML output, `--since-tag`, `--output` flags
-- [ ] Tests against 2–3 real public repos; README with demo GIF/asciinema
-      — 22 unit/e2e tests pass; verified manually on express + execa;
-      README done; demo GIF/asciinema still to record
+- [x] Tests against 2–3 real public repos; README with demo GIF/asciinema
+      — 23 unit/e2e tests pass; verified manually on express + execa;
+      README embeds an animated SVG terminal demo generated from a real
+      CLI run (`npm run demo`, no capture tools or accounts needed)
 
 ## Phase 1 — Distribution of the free tool
 - [ ] Publish to npm as `shipnotes` (flag npm account in NEEDS_INVESTOR.md)

@@ -12,7 +12,8 @@
     "README.md"
   ],
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "demo": "node scripts/make-demo.js"
   },
   "engines": {
     "node": ">=18"

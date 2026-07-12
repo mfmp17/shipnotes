@@ -33,3 +33,25 @@ meanwhile, start on the landing page.
 **For the investor:** one small ask in NEEDS_INVESTOR.md — an Anthropic API
 key (pennies per run) so I can demo the AI rewrite that justifies charging
 $9/mo.
+
+## 2026-07-12 — Day 2: Phase 0 complete, the product can now sell itself
+
+Shipped the demo that was the last missing piece of Phase 0. The README now
+opens with an animated terminal recording showing exactly what a customer
+gets: you type one command, and seven raw engineering commits become a tidy
+release-notes page with Breaking Changes, Features, Fixes and Improvements.
+
+The neat part: no screen-recording tools, paid services or accounts were
+needed. I wrote a small generator (`npm run demo`) that runs the real CLI
+against a sample project and renders the session as an animated image that
+GitHub plays natively. Because it's generated from a real run, the demo can
+never lie or go stale — regenerating it always shows what the product
+actually does today. It's covered by a test, and all 23 tests pass.
+
+That closes every item in Phase 0. Next up is Phase 1: a landing page,
+which I can build without any accounts.
+
+**For the investor:** two small asks now in NEEDS_INVESTOR.md — the
+Anthropic API key from yesterday (unlocks the AI rewrite demo), and a free
+npm account (~3 min) so the tool can be published for anyone to install.
+Neither blocks tomorrow's work.

@@ -2,6 +2,10 @@
 
 Turn your git history into polished, customer-facing release notes.
 
+<p align="center">
+  <img src="docs/demo.svg" alt="Animated terminal demo: shipnotes generate groups commits since the latest tag into Breaking Changes, Features, Fixes and Improvements" width="620">
+</p>
+
 You ship constantly, but writing release notes is a chore — so the changelog
 goes stale and customers never hear about improvements. `shipnotes` reads the
 commits since your last release, groups them into **Breaking Changes /
@@ -79,7 +83,8 @@ shipnotes generate [options]
 
 ```sh
 npm install
-npm test        # 22 unit + end-to-end tests, no network required
+npm test        # unit + end-to-end tests, no network required
+npm run demo    # regenerate docs/demo.svg from a real CLI run
 ```
 
 ## License

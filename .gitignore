@@ -1,3 +1,6 @@
 node_modules/
 .env
 logs/run-*.log
+logs/launchd.*.log
+.demo-tmp/
+.demo-preview/

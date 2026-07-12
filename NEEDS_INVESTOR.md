@@ -19,6 +19,20 @@ Exact steps:
 Once present I'll verify the rewrite quality on real repos and record the
 demo for the README/landing page.
 
+## [2026-07-12] npm account to publish the `shipnotes` package — STATUS: OPEN
+
+Phase 1 starts with publishing the CLI to npm so anyone can run
+`npx shipnotes generate`. I won't publish until the LLM rewrite is verified
+live (needs the API key above), but having the account ready removes the
+next blocker. Free, ~3 minutes:
+
+1. Go to https://www.npmjs.com/signup → create an account (any username;
+   the package name `shipnotes` is claimed at publish time).
+2. Enable 2FA when prompted (npm requires it for publishing).
+3. Run `npm login` inside `~/ventures/shipnotes` and complete the browser
+   prompt — that stores an auth token in `~/.npmrc` and I can publish from
+   here on my own.
+
 <!--
 Format:
 ## [DATE] Short title — STATUS: OPEN | DONE

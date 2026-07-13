@@ -14,7 +14,10 @@
 
 ## Phase 1 — Distribution of the free tool
 - [ ] Publish to npm as `shipnotes` (flag npm account in NEEDS_INVESTOR.md)
-- [ ] Landing page (static, in `site/`) with copy + examples
+- [x] Landing page (static, in `site/`) with copy + examples
+      — dark single-page site; `npm run site` regenerates `site/example.html`
+      from a real CLI run and syncs the demo SVG; deploy waits on npm publish
+      + a host (see NEEDS_INVESTOR)
 - [ ] Launch copy drafts: Hacker News "Show HN", Product Hunt, X thread
 
 ## Phase 2 — GitHub App (the retention hook)

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShipNotes — release notes, straight from your git log</title>
+<meta name="description" content="ShipNotes reads the commits since your last release and turns them into polished, customer-facing release notes. One command, Markdown or HTML, optional Claude rewrite.">
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --border: #30363d;
+    --fg: #e6edf3;
+    --dim: #8b949e;
+    --green: #3fb950;
+    --blue: #79c0ff;
+    --orange: #ffa657;
+    --mono: "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  main { max-width: 880px; margin: 0 auto; padding: 0 1.25rem; }
+  a { color: var(--blue); }
+
+  header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    max-width: 880px; margin: 0 auto; padding: 1.5rem 1.25rem;
+  }
+  .logo { font-family: var(--mono); font-weight: 700; font-size: 1.05rem; }
+  .logo .accent { color: var(--green); }
+  header .tag { color: var(--dim); font-size: .85rem; }
+
+  .hero { text-align: center; padding: 3.5rem 0 2.5rem; }
+  .hero h1 {
+    font-size: clamp(1.9rem, 5vw, 2.9rem);
+    line-height: 1.15; margin: 0 0 1rem; letter-spacing: -.02em;
+  }
+  .hero p.sub {
+    color: var(--dim); font-size: 1.12rem; max-width: 620px; margin: 0 auto 2rem;
+  }
+  .hero .sub strong { color: var(--fg); font-weight: 600; }
+
+  .cmd {
+    display: inline-flex; align-items: center; gap: .9rem;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: .8rem 1.1rem; font-family: var(--mono); font-size: 1rem;
+  }
+  .cmd .dollar { color: var(--green); user-select: none; }
+  .cmd button {
+    background: none; border: 1px solid var(--border); border-radius: 6px;
+    color: var(--dim); font-size: .78rem; padding: .25rem .6rem; cursor: pointer;
+    font-family: inherit;
+  }
+  .cmd button:hover { color: var(--fg); border-color: var(--dim); }
+  .hero .fineprint { color: var(--dim); font-size: .85rem; margin-top: 1rem; }
+
+  .demo { margin: 1.5rem 0 0; text-align: center; }
+  .demo img { max-width: 100%; height: auto; }
+
+  section { padding: 3.5rem 0 0; }
+  section h2 { font-size: 1.5rem; margin: 0 0 .4rem; letter-spacing: -.01em; }
+  section p.lead { color: var(--dim); margin: 0 0 1.75rem; max-width: 640px; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  @media (max-width: 700px) { .steps { grid-template-columns: 1fr; } }
+  .step {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.25rem 1.25rem 1.1rem;
+  }
+  .step .n {
+    font-family: var(--mono); color: var(--green); font-weight: 700; font-size: .85rem;
+  }
+  .step h3 { margin: .35rem 0 .4rem; font-size: 1.02rem; }
+  .step p { margin: 0; color: var(--dim); font-size: .92rem; }
+  .step code {
+    font-family: var(--mono); font-size: .85em; color: var(--orange);
+    background: rgba(255,166,87,.08); border-radius: 4px; padding: .05em .3em;
+  }
+
+  .browser {
+    border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    background: #fff;
+  }
+  .browser .bar {
+    background: var(--panel); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: .45rem; padding: .55rem .9rem;
+  }
+  .browser .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .browser .url {
+    flex: 1; text-align: center; color: var(--dim);
+    font-family: var(--mono); font-size: .75rem;
+  }
+  .browser iframe { display: block; width: 100%; height: 460px; border: 0; background: #fff; }
+  .example-note { color: var(--dim); font-size: .85rem; margin-top: .75rem; }
+
+  .rewrite { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 700px) { .rewrite { grid-template-columns: 1fr; } }
+  .pane {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+  }
+  .pane h3 { margin: 0 0 .75rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; }
+  .pane.raw h3 { color: var(--dim); }
+  .pane.polished h3 { color: var(--green); }
+  .pane ul { margin: 0; padding-left: 1.1rem; }
+  .pane li { margin: .5rem 0; font-size: .92rem; }
+  .pane.raw li { font-family: var(--mono); font-size: .82rem; color: var(--dim); }
+
+  .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 700px) { .pricing { grid-template-columns: 1fr; } }
+  .plan {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.5rem;
+  }
+  .plan.free { border-color: var(--green); }
+  .plan h3 { margin: 0; font-size: 1.05rem; }
+  .plan .price { font-size: 1.9rem; font-weight: 700; margin: .4rem 0 .2rem; }
+  .plan .price span { font-size: .9rem; font-weight: 400; color: var(--dim); }
+  .plan ul { padding-left: 1.1rem; margin: .9rem 0 0; }
+  .plan li { margin: .4rem 0; font-size: .92rem; color: var(--dim); }
+  .plan .soon {
+    display: inline-block; font-size: .72rem; font-family: var(--mono);
+    color: var(--orange); border: 1px solid var(--orange); border-radius: 999px;
+    padding: .1rem .55rem; margin-left: .5rem; vertical-align: middle;
+  }
+
+  footer {
+    margin-top: 4rem; border-top: 1px solid var(--border);
+    color: var(--dim); font-size: .85rem;
+  }
+  footer .inner {
+    max-width: 880px; margin: 0 auto; padding: 1.5rem 1.25rem;
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><span class="accent">ship</span>notes</div>
+  <div class="tag">release notes from your git log</div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Your changelog writes itself.</h1>
+    <p class="sub">
+      You ship constantly, but release notes are a chore — so the changelog goes
+      stale and customers never hear about improvements. ShipNotes reads the
+      commits since your last release and turns them into
+      <strong>polished, customer-facing release notes</strong>. One command.
+    </p>
+    <div class="cmd">
+      <span class="dollar">$</span>
+      <span id="install-cmd">npx shipnotes generate</span>
+      <button type="button" onclick="copyCmd(this)">copy</button>
+    </div>
+    <p class="fineprint">Free &amp; open source (MIT) · runs locally · no signup, no telemetry</p>
+
+    <div class="demo">
+      <img src="demo.svg" width="620"
+           alt="Animated terminal demo: shipnotes generate groups commits since the latest tag into Breaking Changes, Features, Fixes and Improvements">
+    </div>
+  </div>
+
+  <section>
+    <h2>How it works</h2>
+    <p class="lead">No config files, no commit-message policing, no CI setup. If your repo has a git log, it works.</p>
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>Point it at your repo</h3>
+        <p>ShipNotes finds the commits since your latest release tag automatically — or any range you give it with <code>--since-tag</code>.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>Commits become sections</h3>
+        <p>Conventional commits and plain subject lines are sorted into <code>Breaking Changes</code>, <code>Features</code>, <code>Fixes</code> and <code>Improvements</code>. Version bumps, merges and chores are filtered out.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>Ship it</h3>
+        <p>Get clean Markdown for your CHANGELOG or a standalone HTML page ready to host — like the real example below.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Real output, not a mockup</h2>
+    <p class="lead">
+      This page is the actual HTML that <code style="font-family:var(--mono);font-size:.9em">shipnotes generate --format html</code>
+      produced from a sample repo's git log. It is regenerated from a real run
+      every time this site is built, so it can never go stale.
+    </p>
+    <div class="browser">
+      <div class="bar">
+        <span class="dot" style="background:#ff5f56"></span>
+        <span class="dot" style="background:#ffbd2e"></span>
+        <span class="dot" style="background:#27c93f"></span>
+        <span class="url">example.html — generated by shipnotes</span>
+      </div>
+      <iframe src="example.html" title="Release notes page generated by shipnotes" loading="lazy"></iframe>
+    </div>
+    <p class="example-note"><a href="example.html">Open the generated page in its own tab →</a></p>
+  </section>
+
+  <section>
+    <h2>The Claude rewrite pass</h2>
+    <p class="lead">
+      Grouping is free and runs offline. Add an Anthropic API key and ShipNotes
+      also rewrites each entry the way you would for customers: benefit-first,
+      duplicates merged, internal noise dropped. Here's the kind of difference
+      it makes:
+    </p>
+    <div class="rewrite">
+      <div class="pane raw">
+        <h3>Your git log says</h3>
+        <ul>
+          <li>fix(billing): correct proration when upgrading mid-cycle</li>
+          <li>feat(exports): add CSV and Excel export for reports</li>
+          <li>perf: load the dashboard twice as fast on large workspaces</li>
+        </ul>
+      </div>
+      <div class="pane polished">
+        <h3>Your customers read</h3>
+        <ul>
+          <li>Upgrading mid-cycle now bills exactly the prorated amount — no more surprise charges.</li>
+          <li>Export any report to CSV or Excel with one click.</li>
+          <li>Dashboards on large workspaces now load about twice as fast.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <p class="lead">The CLI is free forever. Paying is for when you want ShipNotes to do the whole job automatically.</p>
+    <div class="pricing">
+      <div class="plan free">
+        <h3>Free</h3>
+        <div class="price">$0</div>
+        <ul>
+          <li>Full CLI — grouping, Markdown &amp; HTML output</li>
+          <li>Claude rewrite with your own API key</li>
+          <li>Unlimited repos, public or private</li>
+          <li>MIT licensed, runs entirely on your machine</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>Pro <span class="soon">coming soon</span></h3>
+        <div class="price">$9<span> / month per private repo</span></div>
+        <ul>
+          <li>GitHub App: a release-notes PR opens automatically on every tag</li>
+          <li>Hosted, always-current public changelog page</li>
+          <li>Claude rewrite included — no API key needed</li>
+          <li>Free for public repos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="inner">
+    <span><span style="font-family:var(--mono)"><span style="color:var(--green)">ship</span>notes</span> · MIT license</span>
+    <span>© 2026 ShipNotes</span>
+  </div>
+</footer>
+
+<script>
+function copyCmd(btn) {
+  navigator.clipboard.writeText(document.getElementById("install-cmd").textContent)
+    .then(() => {
+      btn.textContent = "copied!";
+      setTimeout(() => { btn.textContent = "copy"; }, 1500);
+    });
+}
+</script>
+
+</body>
+</html>

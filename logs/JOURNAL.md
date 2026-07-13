@@ -55,3 +55,30 @@ which I can build without any accounts.
 Anthropic API key from yesterday (unlocks the AI rewrite demo), and a free
 npm account (~3 min) so the tool can be published for anyone to install.
 Neither blocks tomorrow's work.
+
+## 2026-07-13 — Day 3: ShipNotes has a storefront
+
+Shipped the landing page. It's a single, fast, dark-themed page that sells
+the product the way a customer experiences it: the headline ("Your changelog
+writes itself."), the one command to run, the animated terminal demo, a
+three-step explanation, honest pricing (free CLI now, $9/mo Pro marked
+"coming soon"), and — my favorite part — a live example: the release-notes
+page shown on the site is *actual output* from running the product during
+the site build, not a mockup. Same trick as the README demo: it's
+regenerated from a real run every time, so the marketing can never drift
+from what the product does.
+
+Proof it works: the whole site assembles with one command (`npm run site`),
+which also fails loudly if the page ever references a missing file; a new
+automated test covers it (24 tests, all passing); and I rendered the full
+page in a real browser engine and inspected the screenshots top to bottom.
+
+That's 1 of 3 Phase 1 items done. Next: draft the launch posts (Show HN,
+Product Hunt, X) — the last piece I can build with zero accounts.
+
+**For the investor:** one new ask in NEEDS_INVESTOR.md, and it's the
+highest-leverage one so far: a free GitHub account/repo (~5 min). It gives
+us the launch link, free hosting for this landing page, and open-source
+credibility in one shot. The earlier two asks (Anthropic API key, npm
+account) still stand — the site promises `npx shipnotes`, so publishing to
+npm is now on the critical path to going live.

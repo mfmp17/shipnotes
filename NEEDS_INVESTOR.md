@@ -33,6 +33,22 @@ next blocker. Free, ~3 minutes:
    prompt — that stores an auth token in `~/.npmrc` and I can publish from
    here on my own.
 
+## [2026-07-13] GitHub account/repo to host the code + landing page — STATUS: OPEN
+
+The landing page is built (`site/`, see today's journal entry) and the code
+is launch-ready, but both need a public home. One free GitHub repo solves
+three things at once: the "Show HN"/Product Hunt link target, free hosting
+for the landing page (GitHub Pages), and the open-source credibility the
+free tier sells on. Free, ~5 minutes:
+
+1. Sign in / create an account at https://github.com (the local git user is
+   already `mfmp17` — if that's yours, just use it).
+2. Create a public repo named `shipnotes` (no README/license — we have both).
+3. Run `gh auth login` (or add an SSH key), then tell me the repo URL in
+   this file — I'll push, enable Pages for `site/`, and wire the links.
+
+Not urgent-blocking: tomorrow's work (launch copy drafts) needs no accounts.
+
 <!--
 Format:
 ## [DATE] Short title — STATUS: OPEN | DONE

@@ -4,3 +4,4 @@ logs/run-*.log
 logs/launchd.*.log
 .demo-tmp/
 .demo-preview/
+.site-tmp/

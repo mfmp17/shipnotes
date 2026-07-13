@@ -4,10 +4,11 @@
 // it builds a fixture repo, captures the CLI's actual output, and renders the
 // session as a looping CSS-animated SVG that GitHub plays inline.
 
-import { execFileSync, spawnSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildFixtureRepo } from "./fixture-repo.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -20,27 +21,7 @@ const STATIC = process.env.DEMO_STATIC === "1";
 
 // --- 1. Build a realistic fixture repo --------------------------------------
 
-rmSync(TMP, { recursive: true, force: true });
-mkdirSync(FIXTURE, { recursive: true });
-
-const git = (...args) =>
-  execFileSync("git", args, { cwd: FIXTURE, encoding: "utf8" });
-const commit = (message) => git("commit", "--allow-empty", "-m", message);
-
-execFileSync("git", ["init", "-q", "-b", "main"], { cwd: FIXTURE });
-git("config", "user.email", "demo@shipnotes.dev");
-git("config", "user.name", "ShipNotes Demo");
-git("config", "commit.gpgsign", "false");
-
-commit("chore: release v1.4.0");
-git("tag", "v1.4.0");
-commit("feat: add dark mode across the dashboard");
-commit("feat(exports): add CSV and Excel export for reports");
-commit("fix: stop the dropdown menu closing while scrolling on mobile");
-commit("fix(billing): correct proration when upgrading mid-cycle");
-commit("perf: load the dashboard twice as fast on large workspaces");
-commit("chore: bump dependencies");
-commit("feat!: remove the legacy v1 API");
+buildFixtureRepo(FIXTURE);
 
 // --- 2. Run the real CLI, capturing stdout and stderr -----------------------
 

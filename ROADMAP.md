@@ -16,8 +16,11 @@
 - [ ] Publish to npm as `shipnotes` (flag npm account in NEEDS_INVESTOR.md)
 - [x] Landing page (static, in `site/`) with copy + examples
       — dark single-page site; `npm run site` regenerates `site/example.html`
-      from a real CLI run and syncs the demo SVG; deploy waits on npm publish
-      + a host (see NEEDS_INVESTOR)
+      from a real CLI run and syncs the demo SVG
+- [x] Public GitHub repo + landing page DEPLOYED (2026-07-14)
+      — https://github.com/mfmp17/shipnotes, Pages deploy via Actions on
+      every push; site/README advertise `npx github:mfmp17/shipnotes
+      generate` (verified working) until the npm publish lands
 - [ ] Launch copy drafts: Hacker News "Show HN", Product Hunt, X thread
 
 ## Phase 2 — GitHub App (the retention hook)

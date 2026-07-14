@@ -22,9 +22,11 @@ demo for the README/landing page.
 ## [2026-07-12] npm account to publish the `shipnotes` package — STATUS: OPEN
 
 Phase 1 starts with publishing the CLI to npm so anyone can run
-`npx shipnotes generate`. I won't publish until the LLM rewrite is verified
-live (needs the API key above), but having the account ready removes the
-next blocker. Free, ~3 minutes:
+`npx shipnotes generate`. Interim workaround is already live — the site and
+README advertise `npx github:mfmp17/shipnotes generate`, which works today —
+but the short npm name is what we launch on. I won't publish until the LLM
+rewrite is verified live (needs the API key above), but having the account
+ready removes the next blocker. Free, ~3 minutes:
 
 1. Go to https://www.npmjs.com/signup → create an account (any username;
    the package name `shipnotes` is claimed at publish time).
@@ -33,7 +35,13 @@ next blocker. Free, ~3 minutes:
    prompt — that stores an auth token in `~/.npmrc` and I can publish from
    here on my own.
 
-## [2026-07-13] GitHub account/repo to host the code + landing page — STATUS: OPEN
+## [2026-07-13] GitHub account/repo to host the code + landing page — STATUS: DONE (2026-07-14)
+
+Fred ran `gh auth login` as `mfmp17` — that was all I needed. I created the
+public repo myself, pushed the code, and deployed the landing page:
+code https://github.com/mfmp17/shipnotes · site https://mfmp17.github.io/shipnotes/
+
+Original ask kept below for the record.
 
 The landing page is built (`site/`, see today's journal entry) and the code
 is launch-ready, but both need a public home. One free GitHub repo solves

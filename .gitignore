@@ -5,3 +5,4 @@ logs/launchd.*.log
 .demo-tmp/
 .demo-preview/
 .site-tmp/
+.daily-run.lock/

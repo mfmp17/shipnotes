@@ -26,6 +26,14 @@
     "cli"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfmp17/shipnotes.git"
+  },
+  "homepage": "https://mfmp17.github.io/shipnotes/",
+  "bugs": {
+    "url": "https://github.com/mfmp17/shipnotes/issues"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.110.0"
   }

@@ -15,8 +15,11 @@ language with Claude, and outputs Markdown or a standalone HTML page.
 ## Quick start
 
 ```sh
-npx shipnotes generate            # notes since your latest tag, to stdout
+npx github:mfmp17/shipnotes generate   # notes since your latest tag, to stdout
 ```
+
+(Publishing to npm as plain `npx shipnotes` is on the way. Landing page:
+[mfmp17.github.io/shipnotes](https://mfmp17.github.io/shipnotes/).)
 
 Real output from the Express repo (heuristic mode, no API key needed):
 

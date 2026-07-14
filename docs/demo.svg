@@ -1,139 +1,131 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="491" height="550" viewBox="0 0 491 550" role="img" aria-label="Terminal recording: shipnotes generate turning git commits into grouped release notes">
 <style>text { font-family: "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 13px; }
-.a0 { animation: ka0 10.78s step-end infinite; }
-@keyframes ka0 { 0% { opacity: 0; } 1.855% { opacity: 0; } 1.856% { opacity: 1; } 100% { opacity: 1; } }
-.a1 { animation: ka1 10.78s step-end infinite; }
-@keyframes ka1 { 0% { opacity: 0; } 5.892% { opacity: 0; } 5.893% { opacity: 1; } 100% { opacity: 1; } }
-.a2 { animation: ka2 10.78s step-end infinite; }
-@keyframes ka2 { 0% { opacity: 0; } 6.217% { opacity: 0; } 6.218% { opacity: 1; } 100% { opacity: 1; } }
-.a3 { animation: ka3 10.78s step-end infinite; }
-@keyframes ka3 { 0% { opacity: 0; } 6.542% { opacity: 0; } 6.543% { opacity: 1; } 100% { opacity: 1; } }
-.a4 { animation: ka4 10.78s step-end infinite; }
-@keyframes ka4 { 0% { opacity: 0; } 6.867% { opacity: 0; } 6.868% { opacity: 1; } 100% { opacity: 1; } }
-.a5 { animation: ka5 10.78s step-end infinite; }
-@keyframes ka5 { 0% { opacity: 0; } 7.192% { opacity: 0; } 7.193% { opacity: 1; } 100% { opacity: 1; } }
-.a6 { animation: ka6 10.78s step-end infinite; }
-@keyframes ka6 { 0% { opacity: 0; } 7.516% { opacity: 0; } 7.517% { opacity: 1; } 100% { opacity: 1; } }
-.a7 { animation: ka7 10.78s step-end infinite; }
-@keyframes ka7 { 0% { opacity: 0; } 7.841% { opacity: 0; } 7.842% { opacity: 1; } 100% { opacity: 1; } }
-.a8 { animation: ka8 10.78s step-end infinite; }
-@keyframes ka8 { 0% { opacity: 0; } 8.166% { opacity: 0; } 8.167% { opacity: 1; } 100% { opacity: 1; } }
-.a9 { animation: ka9 10.78s step-end infinite; }
-@keyframes ka9 { 0% { opacity: 0; } 8.491% { opacity: 0; } 8.492% { opacity: 1; } 100% { opacity: 1; } }
-.a10 { animation: ka10 10.78s step-end infinite; }
-@keyframes ka10 { 0% { opacity: 0; } 8.816% { opacity: 0; } 8.817% { opacity: 1; } 100% { opacity: 1; } }
-.a11 { animation: ka11 10.78s step-end infinite; }
-@keyframes ka11 { 0% { opacity: 0; } 9.141% { opacity: 0; } 9.142% { opacity: 1; } 100% { opacity: 1; } }
-.a12 { animation: ka12 10.78s step-end infinite; }
-@keyframes ka12 { 0% { opacity: 0; } 9.465% { opacity: 0; } 9.466% { opacity: 1; } 100% { opacity: 1; } }
-.a13 { animation: ka13 10.78s step-end infinite; }
-@keyframes ka13 { 0% { opacity: 0; } 9.790% { opacity: 0; } 9.791% { opacity: 1; } 100% { opacity: 1; } }
-.a14 { animation: ka14 10.78s step-end infinite; }
-@keyframes ka14 { 0% { opacity: 0; } 10.115% { opacity: 0; } 10.116% { opacity: 1; } 100% { opacity: 1; } }
-.a15 { animation: ka15 10.78s step-end infinite; }
-@keyframes ka15 { 0% { opacity: 0; } 10.440% { opacity: 0; } 10.441% { opacity: 1; } 100% { opacity: 1; } }
-.a16 { animation: ka16 10.78s step-end infinite; }
-@keyframes ka16 { 0% { opacity: 0; } 10.765% { opacity: 0; } 10.766% { opacity: 1; } 100% { opacity: 1; } }
-.a17 { animation: ka17 10.78s step-end infinite; }
-@keyframes ka17 { 0% { opacity: 0; } 11.089% { opacity: 0; } 11.090% { opacity: 1; } 100% { opacity: 1; } }
-.a18 { animation: ka18 10.78s step-end infinite; }
-@keyframes ka18 { 0% { opacity: 0; } 11.414% { opacity: 0; } 11.415% { opacity: 1; } 100% { opacity: 1; } }
-.a19 { animation: ka19 10.78s step-end infinite; }
-@keyframes ka19 { 0% { opacity: 0; } 11.739% { opacity: 0; } 11.740% { opacity: 1; } 100% { opacity: 1; } }
-.a20 { animation: ka20 10.78s step-end infinite; }
-@keyframes ka20 { 0% { opacity: 0; } 12.064% { opacity: 0; } 12.065% { opacity: 1; } 100% { opacity: 1; } }
-.a21 { animation: ka21 10.78s step-end infinite; }
-@keyframes ka21 { 0% { opacity: 0; } 12.389% { opacity: 0; } 12.390% { opacity: 1; } 100% { opacity: 1; } }
-.a22 { animation: ka22 10.78s step-end infinite; }
-@keyframes ka22 { 0% { opacity: 0; } 12.714% { opacity: 0; } 12.715% { opacity: 1; } 100% { opacity: 1; } }
-.a23 { animation: ka23 10.78s step-end infinite; }
-@keyframes ka23 { 0% { opacity: 0; } 13.038% { opacity: 0; } 13.039% { opacity: 1; } 100% { opacity: 1; } }
-.a24 { animation: ka24 10.78s step-end infinite; }
-@keyframes ka24 { 0% { opacity: 0; } 13.363% { opacity: 0; } 13.364% { opacity: 1; } 100% { opacity: 1; } }
-.a25 { animation: ka25 10.78s step-end infinite; }
-@keyframes ka25 { 0% { opacity: 0; } 13.688% { opacity: 0; } 13.689% { opacity: 1; } 100% { opacity: 1; } }
-.a26 { animation: ka26 10.78s step-end infinite; }
-@keyframes ka26 { 0% { opacity: 0; } 14.013% { opacity: 0; } 14.014% { opacity: 1; } 100% { opacity: 1; } }
-.a27 { animation: ka27 10.78s step-end infinite; }
-@keyframes ka27 { 0% { opacity: 0; } 14.338% { opacity: 0; } 14.339% { opacity: 1; } 100% { opacity: 1; } }
-.a28 { animation: ka28 10.78s step-end infinite; }
-@keyframes ka28 { 0% { opacity: 0; } 14.663% { opacity: 0; } 14.664% { opacity: 1; } 100% { opacity: 1; } }
-.a29 { animation: ka29 10.78s step-end infinite; }
-@keyframes ka29 { 0% { opacity: 0; } 14.987% { opacity: 0; } 14.988% { opacity: 1; } 100% { opacity: 1; } }
-.a30 { animation: ka30 10.78s step-end infinite; }
-@keyframes ka30 { 0% { opacity: 0; } 15.312% { opacity: 0; } 15.313% { opacity: 1; } 100% { opacity: 1; } }
-.a31 { animation: ka31 10.78s step-end infinite; }
-@keyframes ka31 { 0% { opacity: 0; } 15.637% { opacity: 0; } 15.638% { opacity: 1; } 100% { opacity: 1; } }
-.a32 { animation: ka32 10.78s step-end infinite; }
-@keyframes ka32 { 0% { opacity: 0; } 15.962% { opacity: 0; } 15.963% { opacity: 1; } 100% { opacity: 1; } }
-.a33 { animation: ka33 10.78s step-end infinite; }
-@keyframes ka33 { 0% { opacity: 0; } 16.287% { opacity: 0; } 16.288% { opacity: 1; } 100% { opacity: 1; } }
-.a34 { animation: ka34 10.78s step-end infinite; }
-@keyframes ka34 { 0% { opacity: 0; } 16.612% { opacity: 0; } 16.613% { opacity: 1; } 100% { opacity: 1; } }
-.a35 { animation: ka35 10.78s step-end infinite; }
-@keyframes ka35 { 0% { opacity: 0; } 16.936% { opacity: 0; } 16.937% { opacity: 1; } 100% { opacity: 1; } }
-.a36 { animation: ka36 10.78s step-end infinite; }
-@keyframes ka36 { 0% { opacity: 0; } 17.261% { opacity: 0; } 17.262% { opacity: 1; } 100% { opacity: 1; } }
-.a37 { animation: ka37 10.78s step-end infinite; }
-@keyframes ka37 { 0% { opacity: 0; } 17.586% { opacity: 0; } 17.587% { opacity: 1; } 100% { opacity: 1; } }
-.a38 { animation: ka38 10.78s step-end infinite; }
-@keyframes ka38 { 0% { opacity: 0; } 17.911% { opacity: 0; } 17.912% { opacity: 1; } 100% { opacity: 1; } }
-.a39 { animation: ka39 10.78s step-end infinite; }
-@keyframes ka39 { 0% { opacity: 0; } 18.236% { opacity: 0; } 18.237% { opacity: 1; } 100% { opacity: 1; } }
-.a40 { animation: ka40 10.78s step-end infinite; }
-@keyframes ka40 { 0% { opacity: 0; } 18.560% { opacity: 0; } 18.561% { opacity: 1; } 100% { opacity: 1; } }
-.a41 { animation: ka41 10.78s step-end infinite; }
-@keyframes ka41 { 0% { opacity: 0; } 18.885% { opacity: 0; } 18.886% { opacity: 1; } 100% { opacity: 1; } }
-.a42 { animation: ka42 10.78s step-end infinite; }
-@keyframes ka42 { 0% { opacity: 0; } 19.210% { opacity: 0; } 19.211% { opacity: 1; } 100% { opacity: 1; } }
-.a43 { animation: ka43 10.78s step-end infinite; }
-@keyframes ka43 { 0% { opacity: 0; } 19.535% { opacity: 0; } 19.536% { opacity: 1; } 100% { opacity: 1; } }
-.a44 { animation: ka44 10.78s step-end infinite; }
-@keyframes ka44 { 0% { opacity: 0; } 24.175% { opacity: 0; } 24.176% { opacity: 1; } 100% { opacity: 1; } }
-.a45 { animation: ka45 10.78s step-end infinite; }
-@keyframes ka45 { 0% { opacity: 0; } 27.424% { opacity: 0; } 27.425% { opacity: 1; } 100% { opacity: 1; } }
-.a46 { animation: ka46 10.78s step-end infinite; }
-@keyframes ka46 { 0% { opacity: 0; } 30.208% { opacity: 0; } 30.209% { opacity: 1; } 100% { opacity: 1; } }
-.a47 { animation: ka47 10.78s step-end infinite; }
-@keyframes ka47 { 0% { opacity: 0; } 31.322% { opacity: 0; } 31.323% { opacity: 1; } 100% { opacity: 1; } }
-.a48 { animation: ka48 10.78s step-end infinite; }
-@keyframes ka48 { 0% { opacity: 0; } 32.435% { opacity: 0; } 32.436% { opacity: 1; } 100% { opacity: 1; } }
-.a49 { animation: ka49 10.78s step-end infinite; }
-@keyframes ka49 { 0% { opacity: 0; } 33.549% { opacity: 0; } 33.550% { opacity: 1; } 100% { opacity: 1; } }
-.a50 { animation: ka50 10.78s step-end infinite; }
-@keyframes ka50 { 0% { opacity: 0; } 34.663% { opacity: 0; } 34.664% { opacity: 1; } 100% { opacity: 1; } }
-.a51 { animation: ka51 10.78s step-end infinite; }
-@keyframes ka51 { 0% { opacity: 0; } 35.776% { opacity: 0; } 35.777% { opacity: 1; } 100% { opacity: 1; } }
-.a52 { animation: ka52 10.78s step-end infinite; }
-@keyframes ka52 { 0% { opacity: 0; } 36.890% { opacity: 0; } 36.891% { opacity: 1; } 100% { opacity: 1; } }
-.a53 { animation: ka53 10.78s step-end infinite; }
-@keyframes ka53 { 0% { opacity: 0; } 38.004% { opacity: 0; } 38.005% { opacity: 1; } 100% { opacity: 1; } }
-.a54 { animation: ka54 10.78s step-end infinite; }
-@keyframes ka54 { 0% { opacity: 0; } 39.117% { opacity: 0; } 39.118% { opacity: 1; } 100% { opacity: 1; } }
-.a55 { animation: ka55 10.78s step-end infinite; }
-@keyframes ka55 { 0% { opacity: 0; } 40.231% { opacity: 0; } 40.232% { opacity: 1; } 100% { opacity: 1; } }
-.a56 { animation: ka56 10.78s step-end infinite; }
-@keyframes ka56 { 0% { opacity: 0; } 41.345% { opacity: 0; } 41.346% { opacity: 1; } 100% { opacity: 1; } }
-.a57 { animation: ka57 10.78s step-end infinite; }
-@keyframes ka57 { 0% { opacity: 0; } 42.458% { opacity: 0; } 42.459% { opacity: 1; } 100% { opacity: 1; } }
-.a58 { animation: ka58 10.78s step-end infinite; }
-@keyframes ka58 { 0% { opacity: 0; } 43.572% { opacity: 0; } 43.573% { opacity: 1; } 100% { opacity: 1; } }
-.a59 { animation: ka59 10.78s step-end infinite; }
-@keyframes ka59 { 0% { opacity: 0; } 44.686% { opacity: 0; } 44.687% { opacity: 1; } 100% { opacity: 1; } }
-.a60 { animation: ka60 10.78s step-end infinite; }
-@keyframes ka60 { 0% { opacity: 0; } 45.799% { opacity: 0; } 45.800% { opacity: 1; } 100% { opacity: 1; } }
-.a61 { animation: ka61 10.78s step-end infinite; }
-@keyframes ka61 { 0% { opacity: 0; } 46.913% { opacity: 0; } 46.914% { opacity: 1; } 100% { opacity: 1; } }
-.a62 { animation: ka62 10.78s step-end infinite; }
-@keyframes ka62 { 0% { opacity: 0; } 48.027% { opacity: 0; } 48.028% { opacity: 1; } 100% { opacity: 1; } }
-.a63 { animation: ka63 10.78s step-end infinite; }
-@keyframes ka63 { 0% { opacity: 0; } 49.141% { opacity: 0; } 49.142% { opacity: 1; } 100% { opacity: 1; } }
-.a64 { animation: ka64 10.78s step-end infinite; }
-@keyframes ka64 { 0% { opacity: 0; } 50.254% { opacity: 0; } 50.255% { opacity: 1; } 100% { opacity: 1; } }
-.a65 { animation: ka65 10.78s step-end infinite; }
-@keyframes ka65 { 0% { opacity: 0; } 51.368% { opacity: 0; } 51.369% { opacity: 1; } 100% { opacity: 1; } }
-.a66 { animation: ka66 10.78s step-end infinite; }
-@keyframes ka66 { 0% { opacity: 0; } 52.482% { opacity: 0; } 52.483% { opacity: 1; } 100% { opacity: 1; } }</style>
+.a0 { animation: ka0 10.63s step-end infinite; }
+@keyframes ka0 { 0% { opacity: 0; } 1.880% { opacity: 0; } 1.881% { opacity: 1; } 100% { opacity: 1; } }
+.a1 { animation: ka1 10.63s step-end infinite; }
+@keyframes ka1 { 0% { opacity: 0; } 5.970% { opacity: 0; } 5.971% { opacity: 1; } 100% { opacity: 1; } }
+.a2 { animation: ka2 10.63s step-end infinite; }
+@keyframes ka2 { 0% { opacity: 0; } 6.299% { opacity: 0; } 6.300% { opacity: 1; } 100% { opacity: 1; } }
+.a3 { animation: ka3 10.63s step-end infinite; }
+@keyframes ka3 { 0% { opacity: 0; } 6.628% { opacity: 0; } 6.629% { opacity: 1; } 100% { opacity: 1; } }
+.a4 { animation: ka4 10.63s step-end infinite; }
+@keyframes ka4 { 0% { opacity: 0; } 6.957% { opacity: 0; } 6.958% { opacity: 1; } 100% { opacity: 1; } }
+.a5 { animation: ka5 10.63s step-end infinite; }
+@keyframes ka5 { 0% { opacity: 0; } 7.286% { opacity: 0; } 7.287% { opacity: 1; } 100% { opacity: 1; } }
+.a6 { animation: ka6 10.63s step-end infinite; }
+@keyframes ka6 { 0% { opacity: 0; } 7.615% { opacity: 0; } 7.616% { opacity: 1; } 100% { opacity: 1; } }
+.a7 { animation: ka7 10.63s step-end infinite; }
+@keyframes ka7 { 0% { opacity: 0; } 7.944% { opacity: 0; } 7.945% { opacity: 1; } 100% { opacity: 1; } }
+.a8 { animation: ka8 10.63s step-end infinite; }
+@keyframes ka8 { 0% { opacity: 0; } 8.274% { opacity: 0; } 8.275% { opacity: 1; } 100% { opacity: 1; } }
+.a9 { animation: ka9 10.63s step-end infinite; }
+@keyframes ka9 { 0% { opacity: 0; } 8.603% { opacity: 0; } 8.604% { opacity: 1; } 100% { opacity: 1; } }
+.a10 { animation: ka10 10.63s step-end infinite; }
+@keyframes ka10 { 0% { opacity: 0; } 8.932% { opacity: 0; } 8.933% { opacity: 1; } 100% { opacity: 1; } }
+.a11 { animation: ka11 10.63s step-end infinite; }
+@keyframes ka11 { 0% { opacity: 0; } 9.261% { opacity: 0; } 9.262% { opacity: 1; } 100% { opacity: 1; } }
+.a12 { animation: ka12 10.63s step-end infinite; }
+@keyframes ka12 { 0% { opacity: 0; } 9.590% { opacity: 0; } 9.591% { opacity: 1; } 100% { opacity: 1; } }
+.a13 { animation: ka13 10.63s step-end infinite; }
+@keyframes ka13 { 0% { opacity: 0; } 9.919% { opacity: 0; } 9.920% { opacity: 1; } 100% { opacity: 1; } }
+.a14 { animation: ka14 10.63s step-end infinite; }
+@keyframes ka14 { 0% { opacity: 0; } 10.248% { opacity: 0; } 10.249% { opacity: 1; } 100% { opacity: 1; } }
+.a15 { animation: ka15 10.63s step-end infinite; }
+@keyframes ka15 { 0% { opacity: 0; } 10.577% { opacity: 0; } 10.578% { opacity: 1; } 100% { opacity: 1; } }
+.a16 { animation: ka16 10.63s step-end infinite; }
+@keyframes ka16 { 0% { opacity: 0; } 10.906% { opacity: 0; } 10.907% { opacity: 1; } 100% { opacity: 1; } }
+.a17 { animation: ka17 10.63s step-end infinite; }
+@keyframes ka17 { 0% { opacity: 0; } 11.235% { opacity: 0; } 11.236% { opacity: 1; } 100% { opacity: 1; } }
+.a18 { animation: ka18 10.63s step-end infinite; }
+@keyframes ka18 { 0% { opacity: 0; } 11.565% { opacity: 0; } 11.566% { opacity: 1; } 100% { opacity: 1; } }
+.a19 { animation: ka19 10.63s step-end infinite; }
+@keyframes ka19 { 0% { opacity: 0; } 11.894% { opacity: 0; } 11.895% { opacity: 1; } 100% { opacity: 1; } }
+.a20 { animation: ka20 10.63s step-end infinite; }
+@keyframes ka20 { 0% { opacity: 0; } 12.223% { opacity: 0; } 12.224% { opacity: 1; } 100% { opacity: 1; } }
+.a21 { animation: ka21 10.63s step-end infinite; }
+@keyframes ka21 { 0% { opacity: 0; } 12.552% { opacity: 0; } 12.553% { opacity: 1; } 100% { opacity: 1; } }
+.a22 { animation: ka22 10.63s step-end infinite; }
+@keyframes ka22 { 0% { opacity: 0; } 12.881% { opacity: 0; } 12.882% { opacity: 1; } 100% { opacity: 1; } }
+.a23 { animation: ka23 10.63s step-end infinite; }
+@keyframes ka23 { 0% { opacity: 0; } 13.210% { opacity: 0; } 13.211% { opacity: 1; } 100% { opacity: 1; } }
+.a24 { animation: ka24 10.63s step-end infinite; }
+@keyframes ka24 { 0% { opacity: 0; } 13.539% { opacity: 0; } 13.540% { opacity: 1; } 100% { opacity: 1; } }
+.a25 { animation: ka25 10.63s step-end infinite; }
+@keyframes ka25 { 0% { opacity: 0; } 13.868% { opacity: 0; } 13.869% { opacity: 1; } 100% { opacity: 1; } }
+.a26 { animation: ka26 10.63s step-end infinite; }
+@keyframes ka26 { 0% { opacity: 0; } 14.197% { opacity: 0; } 14.198% { opacity: 1; } 100% { opacity: 1; } }
+.a27 { animation: ka27 10.63s step-end infinite; }
+@keyframes ka27 { 0% { opacity: 0; } 14.527% { opacity: 0; } 14.528% { opacity: 1; } 100% { opacity: 1; } }
+.a28 { animation: ka28 10.63s step-end infinite; }
+@keyframes ka28 { 0% { opacity: 0; } 14.856% { opacity: 0; } 14.857% { opacity: 1; } 100% { opacity: 1; } }
+.a29 { animation: ka29 10.63s step-end infinite; }
+@keyframes ka29 { 0% { opacity: 0; } 15.185% { opacity: 0; } 15.186% { opacity: 1; } 100% { opacity: 1; } }
+.a30 { animation: ka30 10.63s step-end infinite; }
+@keyframes ka30 { 0% { opacity: 0; } 15.514% { opacity: 0; } 15.515% { opacity: 1; } 100% { opacity: 1; } }
+.a31 { animation: ka31 10.63s step-end infinite; }
+@keyframes ka31 { 0% { opacity: 0; } 15.843% { opacity: 0; } 15.844% { opacity: 1; } 100% { opacity: 1; } }
+.a32 { animation: ka32 10.63s step-end infinite; }
+@keyframes ka32 { 0% { opacity: 0; } 16.172% { opacity: 0; } 16.173% { opacity: 1; } 100% { opacity: 1; } }
+.a33 { animation: ka33 10.63s step-end infinite; }
+@keyframes ka33 { 0% { opacity: 0; } 16.501% { opacity: 0; } 16.502% { opacity: 1; } 100% { opacity: 1; } }
+.a34 { animation: ka34 10.63s step-end infinite; }
+@keyframes ka34 { 0% { opacity: 0; } 16.830% { opacity: 0; } 16.831% { opacity: 1; } 100% { opacity: 1; } }
+.a35 { animation: ka35 10.63s step-end infinite; }
+@keyframes ka35 { 0% { opacity: 0; } 17.159% { opacity: 0; } 17.160% { opacity: 1; } 100% { opacity: 1; } }
+.a36 { animation: ka36 10.63s step-end infinite; }
+@keyframes ka36 { 0% { opacity: 0; } 17.488% { opacity: 0; } 17.489% { opacity: 1; } 100% { opacity: 1; } }
+.a37 { animation: ka37 10.63s step-end infinite; }
+@keyframes ka37 { 0% { opacity: 0; } 17.818% { opacity: 0; } 17.819% { opacity: 1; } 100% { opacity: 1; } }
+.a38 { animation: ka38 10.63s step-end infinite; }
+@keyframes ka38 { 0% { opacity: 0; } 18.147% { opacity: 0; } 18.148% { opacity: 1; } 100% { opacity: 1; } }
+.a39 { animation: ka39 10.63s step-end infinite; }
+@keyframes ka39 { 0% { opacity: 0; } 18.476% { opacity: 0; } 18.477% { opacity: 1; } 100% { opacity: 1; } }
+.a40 { animation: ka40 10.63s step-end infinite; }
+@keyframes ka40 { 0% { opacity: 0; } 23.177% { opacity: 0; } 23.178% { opacity: 1; } 100% { opacity: 1; } }
+.a41 { animation: ka41 10.63s step-end infinite; }
+@keyframes ka41 { 0% { opacity: 0; } 26.468% { opacity: 0; } 26.469% { opacity: 1; } 100% { opacity: 1; } }
+.a42 { animation: ka42 10.63s step-end infinite; }
+@keyframes ka42 { 0% { opacity: 0; } 29.289% { opacity: 0; } 29.290% { opacity: 1; } 100% { opacity: 1; } }
+.a43 { animation: ka43 10.63s step-end infinite; }
+@keyframes ka43 { 0% { opacity: 0; } 30.417% { opacity: 0; } 30.418% { opacity: 1; } 100% { opacity: 1; } }
+.a44 { animation: ka44 10.63s step-end infinite; }
+@keyframes ka44 { 0% { opacity: 0; } 31.546% { opacity: 0; } 31.547% { opacity: 1; } 100% { opacity: 1; } }
+.a45 { animation: ka45 10.63s step-end infinite; }
+@keyframes ka45 { 0% { opacity: 0; } 32.674% { opacity: 0; } 32.675% { opacity: 1; } 100% { opacity: 1; } }
+.a46 { animation: ka46 10.63s step-end infinite; }
+@keyframes ka46 { 0% { opacity: 0; } 33.802% { opacity: 0; } 33.803% { opacity: 1; } 100% { opacity: 1; } }
+.a47 { animation: ka47 10.63s step-end infinite; }
+@keyframes ka47 { 0% { opacity: 0; } 34.931% { opacity: 0; } 34.932% { opacity: 1; } 100% { opacity: 1; } }
+.a48 { animation: ka48 10.63s step-end infinite; }
+@keyframes ka48 { 0% { opacity: 0; } 36.059% { opacity: 0; } 36.060% { opacity: 1; } 100% { opacity: 1; } }
+.a49 { animation: ka49 10.63s step-end infinite; }
+@keyframes ka49 { 0% { opacity: 0; } 37.188% { opacity: 0; } 37.189% { opacity: 1; } 100% { opacity: 1; } }
+.a50 { animation: ka50 10.63s step-end infinite; }
+@keyframes ka50 { 0% { opacity: 0; } 38.316% { opacity: 0; } 38.317% { opacity: 1; } 100% { opacity: 1; } }
+.a51 { animation: ka51 10.63s step-end infinite; }
+@keyframes ka51 { 0% { opacity: 0; } 39.444% { opacity: 0; } 39.445% { opacity: 1; } 100% { opacity: 1; } }
+.a52 { animation: ka52 10.63s step-end infinite; }
+@keyframes ka52 { 0% { opacity: 0; } 40.573% { opacity: 0; } 40.574% { opacity: 1; } 100% { opacity: 1; } }
+.a53 { animation: ka53 10.63s step-end infinite; }
+@keyframes ka53 { 0% { opacity: 0; } 41.701% { opacity: 0; } 41.702% { opacity: 1; } 100% { opacity: 1; } }
+.a54 { animation: ka54 10.63s step-end infinite; }
+@keyframes ka54 { 0% { opacity: 0; } 42.829% { opacity: 0; } 42.830% { opacity: 1; } 100% { opacity: 1; } }
+.a55 { animation: ka55 10.63s step-end infinite; }
+@keyframes ka55 { 0% { opacity: 0; } 43.958% { opacity: 0; } 43.959% { opacity: 1; } 100% { opacity: 1; } }
+.a56 { animation: ka56 10.63s step-end infinite; }
+@keyframes ka56 { 0% { opacity: 0; } 45.086% { opacity: 0; } 45.087% { opacity: 1; } 100% { opacity: 1; } }
+.a57 { animation: ka57 10.63s step-end infinite; }
+@keyframes ka57 { 0% { opacity: 0; } 46.214% { opacity: 0; } 46.215% { opacity: 1; } 100% { opacity: 1; } }
+.a58 { animation: ka58 10.63s step-end infinite; }
+@keyframes ka58 { 0% { opacity: 0; } 47.343% { opacity: 0; } 47.344% { opacity: 1; } 100% { opacity: 1; } }
+.a59 { animation: ka59 10.63s step-end infinite; }
+@keyframes ka59 { 0% { opacity: 0; } 48.471% { opacity: 0; } 48.472% { opacity: 1; } 100% { opacity: 1; } }
+.a60 { animation: ka60 10.63s step-end infinite; }
+@keyframes ka60 { 0% { opacity: 0; } 49.599% { opacity: 0; } 49.600% { opacity: 1; } 100% { opacity: 1; } }
+.a61 { animation: ka61 10.63s step-end infinite; }
+@keyframes ka61 { 0% { opacity: 0; } 50.728% { opacity: 0; } 50.729% { opacity: 1; } 100% { opacity: 1; } }
+.a62 { animation: ka62 10.63s step-end infinite; }
+@keyframes ka62 { 0% { opacity: 0; } 51.856% { opacity: 0; } 51.857% { opacity: 1; } 100% { opacity: 1; } }</style>
 <rect width="491" height="550" rx="10" fill="#0d1117" stroke="#30363d"/>
 <path d="M0 10 a10 10 0 0 1 10 -10 h471 a10 10 0 0 1 10 10 v24 h-491 z" fill="#161b22"/>
 <circle cx="20" cy="17" r="5.5" fill="#ff5f56"/>
@@ -141,61 +133,57 @@
 <circle cx="60" cy="17" r="5.5" fill="#27c93f"/>
 <text x="245.5" y="21.5" fill="#8b949e" text-anchor="middle">shipnotes — demo</text>
 <text x="18.00" y="67.00" fill="#3fb950" class="a0" style="font-weight:600" xml:space="preserve">$ </text>
-<text x="33.66" y="67.00" fill="#e6edf3" class="a1" xml:space="preserve">n</text>
-<text x="41.49" y="67.00" fill="#e6edf3" class="a2" xml:space="preserve">p</text>
-<text x="49.32" y="67.00" fill="#e6edf3" class="a3" xml:space="preserve">x</text>
-<text x="57.15" y="67.00" fill="#e6edf3" class="a4" xml:space="preserve"> </text>
-<text x="64.98" y="67.00" fill="#e6edf3" class="a5" xml:space="preserve">s</text>
-<text x="72.81" y="67.00" fill="#e6edf3" class="a6" xml:space="preserve">h</text>
-<text x="80.64" y="67.00" fill="#e6edf3" class="a7" xml:space="preserve">i</text>
-<text x="88.47" y="67.00" fill="#e6edf3" class="a8" xml:space="preserve">p</text>
-<text x="96.30" y="67.00" fill="#e6edf3" class="a9" xml:space="preserve">n</text>
-<text x="104.13" y="67.00" fill="#e6edf3" class="a10" xml:space="preserve">o</text>
-<text x="111.96" y="67.00" fill="#e6edf3" class="a11" xml:space="preserve">t</text>
+<text x="33.66" y="67.00" fill="#e6edf3" class="a1" xml:space="preserve">s</text>
+<text x="41.49" y="67.00" fill="#e6edf3" class="a2" xml:space="preserve">h</text>
+<text x="49.32" y="67.00" fill="#e6edf3" class="a3" xml:space="preserve">i</text>
+<text x="57.15" y="67.00" fill="#e6edf3" class="a4" xml:space="preserve">p</text>
+<text x="64.98" y="67.00" fill="#e6edf3" class="a5" xml:space="preserve">n</text>
+<text x="72.81" y="67.00" fill="#e6edf3" class="a6" xml:space="preserve">o</text>
+<text x="80.64" y="67.00" fill="#e6edf3" class="a7" xml:space="preserve">t</text>
+<text x="88.47" y="67.00" fill="#e6edf3" class="a8" xml:space="preserve">e</text>
+<text x="96.30" y="67.00" fill="#e6edf3" class="a9" xml:space="preserve">s</text>
+<text x="104.13" y="67.00" fill="#e6edf3" class="a10" xml:space="preserve"> </text>
+<text x="111.96" y="67.00" fill="#e6edf3" class="a11" xml:space="preserve">g</text>
 <text x="119.79" y="67.00" fill="#e6edf3" class="a12" xml:space="preserve">e</text>
-<text x="127.62" y="67.00" fill="#e6edf3" class="a13" xml:space="preserve">s</text>
-<text x="135.45" y="67.00" fill="#e6edf3" class="a14" xml:space="preserve"> </text>
-<text x="143.28" y="67.00" fill="#e6edf3" class="a15" xml:space="preserve">g</text>
-<text x="151.11" y="67.00" fill="#e6edf3" class="a16" xml:space="preserve">e</text>
-<text x="158.94" y="67.00" fill="#e6edf3" class="a17" xml:space="preserve">n</text>
+<text x="127.62" y="67.00" fill="#e6edf3" class="a13" xml:space="preserve">n</text>
+<text x="135.45" y="67.00" fill="#e6edf3" class="a14" xml:space="preserve">e</text>
+<text x="143.28" y="67.00" fill="#e6edf3" class="a15" xml:space="preserve">r</text>
+<text x="151.11" y="67.00" fill="#e6edf3" class="a16" xml:space="preserve">a</text>
+<text x="158.94" y="67.00" fill="#e6edf3" class="a17" xml:space="preserve">t</text>
 <text x="166.77" y="67.00" fill="#e6edf3" class="a18" xml:space="preserve">e</text>
-<text x="174.60" y="67.00" fill="#e6edf3" class="a19" xml:space="preserve">r</text>
-<text x="182.43" y="67.00" fill="#e6edf3" class="a20" xml:space="preserve">a</text>
-<text x="190.26" y="67.00" fill="#e6edf3" class="a21" xml:space="preserve">t</text>
-<text x="198.09" y="67.00" fill="#e6edf3" class="a22" xml:space="preserve">e</text>
-<text x="205.92" y="67.00" fill="#e6edf3" class="a23" xml:space="preserve"> </text>
+<text x="174.60" y="67.00" fill="#e6edf3" class="a19" xml:space="preserve"> </text>
+<text x="182.43" y="67.00" fill="#e6edf3" class="a20" xml:space="preserve">-</text>
+<text x="190.26" y="67.00" fill="#e6edf3" class="a21" xml:space="preserve">-</text>
+<text x="198.09" y="67.00" fill="#e6edf3" class="a22" xml:space="preserve">n</text>
+<text x="205.92" y="67.00" fill="#e6edf3" class="a23" xml:space="preserve">o</text>
 <text x="213.75" y="67.00" fill="#e6edf3" class="a24" xml:space="preserve">-</text>
-<text x="221.58" y="67.00" fill="#e6edf3" class="a25" xml:space="preserve">-</text>
-<text x="229.41" y="67.00" fill="#e6edf3" class="a26" xml:space="preserve">n</text>
-<text x="237.24" y="67.00" fill="#e6edf3" class="a27" xml:space="preserve">o</text>
-<text x="245.07" y="67.00" fill="#e6edf3" class="a28" xml:space="preserve">-</text>
-<text x="252.90" y="67.00" fill="#e6edf3" class="a29" xml:space="preserve">l</text>
-<text x="260.73" y="67.00" fill="#e6edf3" class="a30" xml:space="preserve">l</text>
-<text x="268.56" y="67.00" fill="#e6edf3" class="a31" xml:space="preserve">m</text>
-<text x="276.39" y="67.00" fill="#e6edf3" class="a32" xml:space="preserve"> </text>
+<text x="221.58" y="67.00" fill="#e6edf3" class="a25" xml:space="preserve">l</text>
+<text x="229.41" y="67.00" fill="#e6edf3" class="a26" xml:space="preserve">l</text>
+<text x="237.24" y="67.00" fill="#e6edf3" class="a27" xml:space="preserve">m</text>
+<text x="245.07" y="67.00" fill="#e6edf3" class="a28" xml:space="preserve"> </text>
+<text x="252.90" y="67.00" fill="#e6edf3" class="a29" xml:space="preserve">-</text>
+<text x="260.73" y="67.00" fill="#e6edf3" class="a30" xml:space="preserve">-</text>
+<text x="268.56" y="67.00" fill="#e6edf3" class="a31" xml:space="preserve">n</text>
+<text x="276.39" y="67.00" fill="#e6edf3" class="a32" xml:space="preserve">o</text>
 <text x="284.22" y="67.00" fill="#e6edf3" class="a33" xml:space="preserve">-</text>
-<text x="292.05" y="67.00" fill="#e6edf3" class="a34" xml:space="preserve">-</text>
-<text x="299.88" y="67.00" fill="#e6edf3" class="a35" xml:space="preserve">n</text>
-<text x="307.71" y="67.00" fill="#e6edf3" class="a36" xml:space="preserve">o</text>
-<text x="315.54" y="67.00" fill="#e6edf3" class="a37" xml:space="preserve">-</text>
-<text x="323.37" y="67.00" fill="#e6edf3" class="a38" xml:space="preserve">h</text>
-<text x="331.20" y="67.00" fill="#e6edf3" class="a39" xml:space="preserve">a</text>
-<text x="339.03" y="67.00" fill="#e6edf3" class="a40" xml:space="preserve">s</text>
-<text x="346.86" y="67.00" fill="#e6edf3" class="a41" xml:space="preserve">h</text>
-<text x="354.69" y="67.00" fill="#e6edf3" class="a42" xml:space="preserve">e</text>
-<text x="362.52" y="67.00" fill="#e6edf3" class="a43" xml:space="preserve">s</text>
-<text x="18.00" y="87.00" fill="#8b949e" class="a44" style="font-style:italic" xml:space="preserve">shipnotes: 7 commit(s) (since latest tag v1.4.0)</text>
-<text x="18.00" y="127.00" fill="#79c0ff" class="a46" style="font-weight:600" xml:space="preserve"># acme-app — release notes</text>
-<text x="18.00" y="167.00" fill="#8b949e" class="a48" style="font-style:italic" xml:space="preserve">_2026-07-13_</text>
-<text x="18.00" y="207.00" fill="#ffa657" class="a50" style="font-weight:600" xml:space="preserve">## Breaking Changes</text>
-<text x="18.00" y="247.00" fill="#e6edf3" class="a52" xml:space="preserve">- Remove the legacy v1 API</text>
-<text x="18.00" y="287.00" fill="#ffa657" class="a54" style="font-weight:600" xml:space="preserve">## Features</text>
-<text x="18.00" y="327.00" fill="#e6edf3" class="a56" xml:space="preserve">- Add CSV and Excel export for reports</text>
-<text x="18.00" y="347.00" fill="#e6edf3" class="a57" xml:space="preserve">- Add dark mode across the dashboard</text>
-<text x="18.00" y="387.00" fill="#ffa657" class="a59" style="font-weight:600" xml:space="preserve">## Fixes</text>
-<text x="18.00" y="427.00" fill="#e6edf3" class="a61" xml:space="preserve">- Correct proration when upgrading mid-cycle</text>
-<text x="18.00" y="447.00" fill="#e6edf3" class="a62" xml:space="preserve">- Stop the dropdown menu closing while scrolling on mobile</text>
-<text x="18.00" y="487.00" fill="#ffa657" class="a64" style="font-weight:600" xml:space="preserve">## Improvements</text>
-<text x="18.00" y="527.00" fill="#e6edf3" class="a66" xml:space="preserve">- Load the dashboard twice as fast on large workspaces</text>
-<rect x="372.35" y="56.00" width="7" height="14" fill="#3fb950"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>
+<text x="292.05" y="67.00" fill="#e6edf3" class="a34" xml:space="preserve">h</text>
+<text x="299.88" y="67.00" fill="#e6edf3" class="a35" xml:space="preserve">a</text>
+<text x="307.71" y="67.00" fill="#e6edf3" class="a36" xml:space="preserve">s</text>
+<text x="315.54" y="67.00" fill="#e6edf3" class="a37" xml:space="preserve">h</text>
+<text x="323.37" y="67.00" fill="#e6edf3" class="a38" xml:space="preserve">e</text>
+<text x="331.20" y="67.00" fill="#e6edf3" class="a39" xml:space="preserve">s</text>
+<text x="18.00" y="87.00" fill="#8b949e" class="a40" style="font-style:italic" xml:space="preserve">shipnotes: 7 commit(s) (since latest tag v1.4.0)</text>
+<text x="18.00" y="127.00" fill="#79c0ff" class="a42" style="font-weight:600" xml:space="preserve"># acme-app — release notes</text>
+<text x="18.00" y="167.00" fill="#8b949e" class="a44" style="font-style:italic" xml:space="preserve">_2026-07-14_</text>
+<text x="18.00" y="207.00" fill="#ffa657" class="a46" style="font-weight:600" xml:space="preserve">## Breaking Changes</text>
+<text x="18.00" y="247.00" fill="#e6edf3" class="a48" xml:space="preserve">- Remove the legacy v1 API</text>
+<text x="18.00" y="287.00" fill="#ffa657" class="a50" style="font-weight:600" xml:space="preserve">## Features</text>
+<text x="18.00" y="327.00" fill="#e6edf3" class="a52" xml:space="preserve">- Add CSV and Excel export for reports</text>
+<text x="18.00" y="347.00" fill="#e6edf3" class="a53" xml:space="preserve">- Add dark mode across the dashboard</text>
+<text x="18.00" y="387.00" fill="#ffa657" class="a55" style="font-weight:600" xml:space="preserve">## Fixes</text>
+<text x="18.00" y="427.00" fill="#e6edf3" class="a57" xml:space="preserve">- Correct proration when upgrading mid-cycle</text>
+<text x="18.00" y="447.00" fill="#e6edf3" class="a58" xml:space="preserve">- Stop the dropdown menu closing while scrolling on mobile</text>
+<text x="18.00" y="487.00" fill="#ffa657" class="a60" style="font-weight:600" xml:space="preserve">## Improvements</text>
+<text x="18.00" y="527.00" fill="#e6edf3" class="a62" xml:space="preserve">- Load the dashboard twice as fast on large workspaces</text>
+<rect x="341.03" y="56.00" width="7" height="14" fill="#3fb950"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>
 </svg>

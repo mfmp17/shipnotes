@@ -41,7 +41,7 @@ const stdoutLines = run.stdout.replace(/\n+$/, "").split("\n");
 
 // --- 3. Compose the terminal session ----------------------------------------
 
-const COMMAND = "npx shipnotes generate --no-llm --no-hashes";
+const COMMAND = "shipnotes generate --no-llm --no-hashes";
 
 const C = {
   bg: "#0d1117",

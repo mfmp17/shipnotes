@@ -32,9 +32,9 @@
 - [ ] Hosted changelog page per repo (Next.js or plain static publish)
 - [ ] App registration + hosting → NEEDS_INVESTOR.md when ready
 
-## Phase 3 — Revenue
-- [ ] Stripe checkout, $9/mo per private repo (Stripe account → investor)
-- [ ] Free/paid gating, onboarding emails, docs
+## Phase 3 — Revenue (parked 2026-07-19: investor set pricing to free, always)
+- ~~Stripe checkout, $9/mo per private repo~~ — retired with the free-always
+  decision; revisit only if the investor reverses it
 
 ## Principles
 Ship the smallest thing that a stranger could use. Every phase ends with

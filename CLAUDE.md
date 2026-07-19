@@ -16,7 +16,8 @@ release notes and changelogs.
   customer language, and outputs Markdown/HTML/a hosted changelog page.
 - **Wedge:** start as a great CLI (`shipnotes generate`), then a GitHub App
   that opens a release-notes PR automatically, then a hosted changelog page.
-- **Pricing (v1 hypothesis):** free for public repos, $9/mo per private repo.
+- **Pricing:** free, always — public and private repos (investor decision,
+  2026-07-19). No paid tier; do not reintroduce one without investor sign-off.
 
 ## Operating rules
 

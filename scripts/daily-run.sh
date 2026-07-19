@@ -31,5 +31,12 @@ fi
 claude -p "$(cat "$VENTURE_DIR/DAILY_PROMPT.md")" \
   --dangerously-skip-permissions \
   > "$RUN_LOG" 2>&1
+STATUS=$?
 
-echo "$(date): session finished with exit code $? — log: $RUN_LOG" >> "$LOG_DIR/launchd.out.log"
+# claude exits 0 even when auth fails, which hid four dead runs (Jul 15-19)
+# behind "exit code 0" — detect the failure text so this log tells the truth.
+if grep -q "Failed to authenticate" "$RUN_LOG"; then
+  echo "$(date): session FAILED — auth error, see $RUN_LOG" >> "$LOG_DIR/launchd.out.log"
+  exit 1
+fi
+echo "$(date): session finished with exit code $STATUS — log: $RUN_LOG" >> "$LOG_DIR/launchd.out.log"

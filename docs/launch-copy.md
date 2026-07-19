@@ -62,9 +62,9 @@ Maker here. ShipNotes started from a simple itch: we shipped constantly, but
 writing release notes was always the task that got skipped. The CLI is the
 free wedge: point it at a repo and it produces publishable notes from the git
 history you already have. The demo and example on the landing page are real
-CLI output regenerated at build time. Pro (coming next) is the automation
-layer: a GitHub App that opens a release-notes PR on every tag, plus a hosted
-always-current changelog page — free for public repos, $9/mo per private repo.
+CLI output regenerated at build time. Coming next is the automation layer: a
+GitHub App that opens a release-notes PR on every tag, plus a hosted
+always-current changelog page — also free. ShipNotes is free, always.
 Feedback very welcome.
 
 ## X thread
@@ -91,7 +91,7 @@ entries into benefit-first customer language, merges duplicates, and drops
 changes users will never notice. No key? You still get clean grouped notes.
 
 6/ Next: a GitHub App that opens a release-notes PR automatically on every
-tag. Free for public repos; $9/mo per private repo is the v1 Pro hypothesis.
+tag, plus a hosted always-current changelog. Free — always, public or private.
 
 7/ Code is open: https://github.com/mfmp17/shipnotes — issues, ideas and
 roasts welcome.

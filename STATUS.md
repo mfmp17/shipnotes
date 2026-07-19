@@ -18,11 +18,11 @@ machine-readable output mode for the Phase 2 automation work.
 27 tests pass.
 
 ## Next single most important thing
-Publish to npm, then launch. Both former investor blockers cleared on
-2026-07-19: the LLM rewrite ran live against a real repo (claude-opus-4-8,
-key in macOS Keychain, loaded by scripts/daily-run.sh) and `npm login` is
-done as `mfmp17`. Once the npm package is live, swap the install command in
-README/site/launch copy, regenerate demo + site, push, and post.
+Post the launch: Show HN, X thread, Product Hunt. The copy is final in
+docs/launch-copy.md and the package is live (@mfmp17/shipnotes@0.1.0,
+published 2026-07-19; site flipped and redeployed the same day). Posting
+requires Fred's accounts — everything else is ready. After that: Phase 2,
+the GitHub App, whose job is now reach rather than revenue (free always).
 
 ## Open risks / notes
 - Everything is public now, including this file, the journal and
@@ -37,4 +37,5 @@ README/site/launch copy, regenerate demo + site, push, and post.
 - Rewrite before/after on the page is illustrative (LLM not yet run live);
   copy says "the kind of difference it makes" — replace with real output
   once the key lands.
-- Pricing on page is the v1 hypothesis ($9/mo per private repo).
+- Pricing: free always, public and private repos (investor decision
+  2026-07-19). The $9/mo Pro hypothesis is retired; Phase 3 revenue parked.

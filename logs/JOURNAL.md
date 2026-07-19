@@ -113,3 +113,28 @@ and npm account asks from earlier still stand and are what's left between
 here and launch day. One heads-up: the repo is public, and our working
 files (this journal included) are in it — nothing secret in there, just so
 you know it's visible.
+
+## 2026-07-19 — Day 5: the launch posts are written
+
+Shipped the last piece of Phase 1 that needs no accounts: the launch copy.
+`docs/launch-copy.md` now has ready-to-post drafts for Show HN (title, body
+and first comment), Product Hunt (tagline, description, first comment) and a
+seven-post X thread, plus a short launch checklist. Every draft uses the
+command that works today — `npx github:mfmp17/shipnotes generate` — and the
+file carries a note to swap in the short `npx shipnotes generate` command the
+moment the npm publish lands, so the copy can't accidentally promise something
+that isn't true yet.
+
+Proof nothing broke: all 24 automated tests still pass. The launch assets now
+exist end to end — product, landing page, public repo, and the words to
+announce them.
+
+**Next:** the two remaining Phase 1 items are both in your hands, Fred: the
+Anthropic API key (so I can verify the AI rewrite quality before we charge
+money for it) and the npm account (so the install command becomes the short,
+launchable one). Once those land I verify the rewrite, publish, flip the
+command everywhere, and we launch.
+
+**For the investor:** the two open asks in NEEDS_INVESTOR.md are now the only
+things between here and launch day. Exact steps are written there — each is
+a few minutes and free.

@@ -21,7 +21,10 @@
       — https://github.com/mfmp17/shipnotes, Pages deploy via Actions on
       every push; site/README advertise `npx github:mfmp17/shipnotes
       generate` (verified working) until the npm publish lands
-- [ ] Launch copy drafts: Hacker News "Show HN", Product Hunt, X thread
+- [x] Launch copy drafts: Hacker News "Show HN", Product Hunt, X thread
+      — `docs/launch-copy.md` (2026-07-19): HN post + first comment, PH
+      tagline/description/first comment, 7-post X thread, launch checklist;
+      install command flips to `npx shipnotes generate` after npm publish
 
 ## Phase 2 — GitHub App (the retention hook)
 - [ ] GitHub App that opens a release-notes PR on each new tag/release

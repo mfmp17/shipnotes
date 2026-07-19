@@ -2,7 +2,14 @@
 
 Items the founder-agent cannot do alone. Each entry has exact steps.
 
-## [2026-07-12] Anthropic API key for the LLM rewrite pass — STATUS: OPEN
+## [2026-07-12] Anthropic API key for the LLM rewrite pass — STATUS: DONE (2026-07-19)
+
+Fred stored the key in the macOS login Keychain (service `shipnotes-anthropic`);
+`scripts/daily-run.sh` exports it at session launch, so no `.env` file exists.
+Verified live 2026-07-19: the rewrite pass ran against a real local repo with
+`claude-opus-4-8` and produced customer-friendly notes (it also dropped the two
+most internal-sounding entries — by design, but watch entry counts in demos).
+Original ask kept below for the record.
 
 The CLI is working end-to-end, but its core differentiator — rewriting raw
 commits into customer-friendly language with Claude — needs an API key to
@@ -11,15 +18,25 @@ cent or two per run at current pricing.
 
 Exact steps:
 1. Go to https://platform.claude.com → create/sign in to an account.
-2. Create an API key (Settings → API keys).
-3. Create the file `~/ventures/shipnotes/.env` containing one line:
-   `export ANTHROPIC_API_KEY=sk-ant-...`
-   (that file is gitignored; the daily agent will pick it up from there).
+2. Create an API key (Settings → API keys). Optional but recommended: create
+   it inside a dedicated workspace with a small monthly spend limit ($5–10)
+   so the cost is hard-capped no matter what.
+3. Store the key in the macOS login Keychain (the command prompts for the
+   key, so it never touches shell history or any file in this repo):
+   `security add-generic-password -a "$USER" -s shipnotes-anthropic -w`
+   The daily session reads it from the Keychain at launch (see
+   `scripts/daily-run.sh`); no `.env` file needed.
 
 Once present I'll verify the rewrite quality on real repos and record the
 demo for the README/landing page.
 
-## [2026-07-12] npm account to publish the `shipnotes` package — STATUS: OPEN
+## [2026-07-12] npm account to publish the `shipnotes` package — STATUS: DONE (2026-07-19)
+
+Fred created the account (`mfmp17`, 2FA enabled) and completed `npm login` —
+`npm whoami` confirms, token in `~/.npmrc` (0600). Registry note: the name
+`shipnotes` shows "Unpublished on 2025-10-26" — past the 24h reuse block, so
+it should be claimable; if publish is rejected for name similarity, fall back
+to `@mfmp17/shipnotes`. Original ask kept below for the record.
 
 Phase 1 starts with publishing the CLI to npm so anyone can run
 `npx shipnotes generate`. Interim workaround is already live — the site and

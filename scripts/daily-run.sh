@@ -20,6 +20,14 @@ trap 'rmdir "$LOCK_DIR"' EXIT
 
 cd "$VENTURE_DIR"
 
+# Product LLM key lives in the macOS login Keychain — never as a file in this
+# (public) repo tree. One-time setup:
+#   security add-generic-password -a "$USER" -s shipnotes-anthropic -w
+ANTHROPIC_API_KEY="$(security find-generic-password -s shipnotes-anthropic -w 2>/dev/null || true)"
+if [ -n "$ANTHROPIC_API_KEY" ]; then
+  export ANTHROPIC_API_KEY
+fi
+
 claude -p "$(cat "$VENTURE_DIR/DAILY_PROMPT.md")" \
   --dangerously-skip-permissions \
   > "$RUN_LOG" 2>&1

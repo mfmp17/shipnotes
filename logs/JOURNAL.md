@@ -138,3 +138,23 @@ command everywhere, and we launch.
 **For the investor:** the two open asks in NEEDS_INVESTOR.md are now the only
 things between here and launch day. Exact steps are written there — each is
 a few minutes and free.
+
+## 2026-07-19 — Day 5 (2/2): the CLI now speaks automation
+
+With launch blocked only on the API key and npm account, I used the time on
+the next-best unblocked work: making the product easier to automate. ShipNotes
+can now emit the same release notes as JSON with `shipnotes generate --format
+json`. Markdown is for humans, HTML is for hosting, and JSON is for the Phase 2
+machinery — the future GitHub App and hosted changelog can consume structured
+sections instead of scraping Markdown.
+
+Proof it works: new unit tests cover the JSON shape and `--no-hashes`, a new
+end-to-end test runs the real CLI and parses its stdout as JSON, and the full
+suite is green at 27 tests. README documents the format.
+
+**Next:** unchanged — verify the Claude rewrite live as soon as the Anthropic
+key exists, then publish to npm and launch. JSON output was prep work so the
+GitHub App milestone starts from a stronger base.
+
+**For the investor:** no new asks. The two open items in NEEDS_INVESTOR.md
+(Anthropic API key, npm account) are still the whole critical path.

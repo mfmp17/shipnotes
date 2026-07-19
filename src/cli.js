@@ -3,7 +3,7 @@ import { writeFileSync } from "node:fs";
 import { basename, resolve } from "node:path";
 import { readCommits, latestTag, isGitRepo } from "./gitlog.js";
 import { groupCommits, isEmpty } from "./group.js";
-import { renderMarkdown, renderHtml } from "./render.js";
+import { renderMarkdown, renderHtml, renderJson } from "./render.js";
 import { hasApiKey, rewriteWithClaude, Anthropic } from "./llm.js";
 
 const HELP = `shipnotes — turn git history into customer-facing release notes
@@ -16,7 +16,7 @@ Options:
   --from <ref>        Alias for --since-tag (any git ref)
   --to <ref>          End of the commit range (default: HEAD)
   --repo <path>       Path to the git repository (default: current directory)
-  --format <fmt>      Output format: md | html (default: md)
+  --format <fmt>      Output format: md | html | json (default: md)
   -o, --output <file> Write to a file instead of stdout
   --title <title>     Notes title (default: "<repo> — release notes")
   --no-llm            Skip the Claude rewrite pass, use heuristic grouping only
@@ -65,8 +65,8 @@ export async function main(argv = process.argv.slice(2)) {
     process.stdout.write(pkg.version + "\n");
     return 0;
   }
-  if (!["md", "html"].includes(opts.format)) {
-    process.stderr.write(`shipnotes: unknown format "${opts.format}" (expected md or html)\n`);
+  if (!["md", "html", "json"].includes(opts.format)) {
+    process.stderr.write(`shipnotes: unknown format "${opts.format}" (expected md, html or json)\n`);
     return 2;
   }
 
@@ -127,7 +127,11 @@ export async function main(argv = process.argv.slice(2)) {
   const now = new Date();
   const date = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
   const renderOpts = { title, date, showHashes: !opts["no-hashes"] };
-  const out = opts.format === "html" ? renderHtml(groups, renderOpts) : renderMarkdown(groups, renderOpts);
+  const out = opts.format === "html"
+    ? renderHtml(groups, renderOpts)
+    : opts.format === "json"
+      ? renderJson(groups, renderOpts)
+      : renderMarkdown(groups, renderOpts);
 
   if (opts.output) {
     writeFileSync(opts.output, out);

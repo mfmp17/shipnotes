@@ -21,6 +21,26 @@ export function renderMarkdown(groups, { title, date, showHashes = true } = {}) 
   return lines.join("\n").trimEnd() + "\n";
 }
 
+export function renderJson(groups, { title, date, showHashes = true } = {}) {
+  const sections = [];
+  for (const section of SECTION_ORDER) {
+    const entries = groups[section] ?? [];
+    if (entries.length === 0) continue;
+    sections.push({
+      id: section,
+      title: SECTION_TITLES[section],
+      entries: entries.map((entry) => {
+        const out = { text: entry.text };
+        if (showHashes && entry.hash) out.hash = entry.hash;
+        if (entry.author) out.author = entry.author;
+        if (entry.date) out.date = entry.date;
+        return out;
+      }),
+    });
+  }
+  return JSON.stringify({ title, date, sections }, null, 2) + "\n";
+}
+
 function escapeHtml(s) {
   return s
     .replaceAll("&", "&amp;")

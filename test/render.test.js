@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { renderMarkdown, renderHtml } from "../src/render.js";
+import { renderMarkdown, renderHtml, renderJson } from "../src/render.js";
 
 const groups = {
   breaking: [],
@@ -38,4 +38,19 @@ test("html lists sections in order and skips empty ones", () => {
   const fixes = html.indexOf("Fixes");
   assert.ok(features !== -1 && fixes !== -1 && features < fixes);
   assert.doesNotMatch(html, /Improvements/);
+});
+
+test("json emits machine-readable sections", () => {
+  const parsed = JSON.parse(renderJson(groups, { title: "t", date: "2026-07-12" }));
+  assert.equal(parsed.title, "t");
+  assert.equal(parsed.date, "2026-07-12");
+  assert.deepEqual(parsed.sections.map((s) => s.id), ["features", "fixes"]);
+  assert.equal(parsed.sections[0].title, "Features");
+  assert.equal(parsed.sections[0].entries[0].text, "Add CSV export");
+  assert.equal(parsed.sections[0].entries[0].hash, "abc1234");
+});
+
+test("json respects --no-hashes", () => {
+  const parsed = JSON.parse(renderJson(groups, { title: "t", showHashes: false }));
+  assert.equal(parsed.sections[0].entries[0].hash, undefined);
 });

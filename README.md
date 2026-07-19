@@ -63,7 +63,7 @@ shipnotes generate [options]
   --from <ref>        Alias for --since-tag (any git ref)
   --to <ref>          End of the commit range (default: HEAD)
   --repo <path>       Path to the git repository (default: current directory)
-  --format <fmt>      Output format: md | html (default: md)
+  --format <fmt>      Output format: md | html | json (default: md)
   -o, --output <file> Write to a file instead of stdout
   --title <title>     Notes title (default: "<repo> — release notes")
   --no-llm            Skip the Claude rewrite pass
@@ -71,6 +71,10 @@ shipnotes generate [options]
   --all               Include internal changes (chores, docs, CI)
   --no-hashes         Omit commit hashes from the output
 ```
+
+`--format json` emits the same grouped notes as machine-readable JSON
+(`{ title, date, sections: [{ id, title, entries }] }`) for automation such as
+the planned GitHub App and hosted changelog.
 
 ## How grouping works
 

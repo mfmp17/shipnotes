@@ -82,6 +82,14 @@ test("html format produces a standalone page", () => {
   assert.match(out, /Add CSV export/);
 });
 
+test("json format produces machine-readable notes", () => {
+  const parsed = JSON.parse(run(["--no-llm", "--format", "json"]));
+  const ids = parsed.sections.map((s) => s.id);
+  assert.deepEqual(ids, ["breaking", "features", "fixes", "improvements"]);
+  assert.equal(parsed.sections[1].entries[0].text, "Add CSV export");
+  assert.ok(parsed.sections[1].entries[0].hash);
+});
+
 test("without ANTHROPIC_API_KEY it degrades to heuristics (no crash)", () => {
   // no --no-llm flag: the key is blanked in run(), so the CLI must warn and continue
   const out = run([]);

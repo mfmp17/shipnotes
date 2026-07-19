@@ -15,7 +15,7 @@ language with Claude, and outputs Markdown or a standalone HTML page.
 ## Quick start
 
 ```sh
-npx shipnotes generate   # notes since your latest tag, to stdout
+npx @mfmp17/shipnotes generate   # notes since your latest tag, to stdout
 ```
 
 (Landing page:

@@ -13,18 +13,19 @@
       CLI run (`npm run demo`, no capture tools or accounts needed)
 
 ## Phase 1 — Distribution of the free tool
-- [ ] Publish to npm as `shipnotes` (flag npm account in NEEDS_INVESTOR.md)
+- [x] Publish to npm as `@mfmp17/shipnotes` (2026-07-19) — unscoped
+      `shipnotes` rejected by the registry as too similar to `ship-notes`
 - [x] Landing page (static, in `site/`) with copy + examples
       — dark single-page site; `npm run site` regenerates `site/example.html`
       from a real CLI run and syncs the demo SVG
 - [x] Public GitHub repo + landing page DEPLOYED (2026-07-14)
       — https://github.com/mfmp17/shipnotes, Pages deploy via Actions on
-      every push; site/README advertise `npx github:mfmp17/shipnotes
-      generate` (verified working) until the npm publish lands
+      every push; site/README advertised the github: install command until
+      the npm publish landed (2026-07-19), now `npx @mfmp17/shipnotes generate`
 - [x] Launch copy drafts: Hacker News "Show HN", Product Hunt, X thread
       — `docs/launch-copy.md` (2026-07-19): HN post + first comment, PH
       tagline/description/first comment, 7-post X thread, launch checklist;
-      install command flips to `npx shipnotes generate` after npm publish
+      install command flipped to `npx @mfmp17/shipnotes generate` (2026-07-19)
 
 ## Phase 2 — GitHub App (the retention hook)
 - [ ] GitHub App that opens a release-notes PR on each new tag/release

@@ -174,7 +174,7 @@
 <text x="331.20" y="67.00" fill="#e6edf3" class="a39" xml:space="preserve">s</text>
 <text x="18.00" y="87.00" fill="#8b949e" class="a40" style="font-style:italic" xml:space="preserve">shipnotes: 7 commit(s) (since latest tag v1.4.0)</text>
 <text x="18.00" y="127.00" fill="#79c0ff" class="a42" style="font-weight:600" xml:space="preserve"># acme-app — release notes</text>
-<text x="18.00" y="167.00" fill="#8b949e" class="a44" style="font-style:italic" xml:space="preserve">_2026-07-14_</text>
+<text x="18.00" y="167.00" fill="#8b949e" class="a44" style="font-style:italic" xml:space="preserve">_2026-07-19_</text>
 <text x="18.00" y="207.00" fill="#ffa657" class="a46" style="font-weight:600" xml:space="preserve">## Breaking Changes</text>
 <text x="18.00" y="247.00" fill="#e6edf3" class="a48" xml:space="preserve">- Remove the legacy v1 API</text>
 <text x="18.00" y="287.00" fill="#ffa657" class="a50" style="font-weight:600" xml:space="preserve">## Features</text>

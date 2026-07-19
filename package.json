@@ -1,10 +1,10 @@
 {
-  "name": "shipnotes",
+  "name": "@mfmp17/shipnotes",
   "version": "0.1.0",
   "description": "Turn your git history into polished, customer-facing release notes.",
   "type": "module",
   "bin": {
-    "shipnotes": "./bin/shipnotes.js"
+    "shipnotes": "bin/shipnotes.js"
   },
   "files": [
     "bin",

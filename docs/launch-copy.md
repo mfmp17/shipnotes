@@ -1,9 +1,5 @@
 # Launch copy drafts
 
-Internal note: the install command below is the one that works today,
-`npx github:mfmp17/shipnotes generate`. After the npm publish lands, replace
-it everywhere with `npx shipnotes generate` and remove this note.
-
 Links:
 - Product: https://mfmp17.github.io/shipnotes/
 - Code: https://github.com/mfmp17/shipnotes
@@ -21,7 +17,7 @@ Markdown or a standalone HTML page.
 
 Try it on any repo:
 
-    npx github:mfmp17/shipnotes generate
+    npx @mfmp17/shipnotes generate
 
 It runs locally, needs no signup, and works offline. Conventional commits map
 directly to sections; plain subject lines are classified heuristically. If you
@@ -45,8 +41,8 @@ Happy to answer questions. A few implementation notes:
   you can host anywhere.
 - The LLM rewrite is strictly optional and fails open: API errors fall back to
   the heuristic grouping rather than losing your notes.
-- Next step is publishing to npm so the command becomes `npx shipnotes
-  generate`, then a GitHub App that opens a release-notes PR on each tag.
+- Next step is a GitHub App that opens a release-notes PR on each tag, so the
+  notes write themselves as part of the release flow.
 
 ## Product Hunt
 
@@ -79,7 +75,7 @@ release notes. One command, runs locally, MIT licensed.
 
 2/ Try it on any repo:
 
-npx github:mfmp17/shipnotes generate
+npx @mfmp17/shipnotes generate
 
 No signup. No config. No commit-message policing.
 
@@ -94,20 +90,20 @@ regenerated every build: https://mfmp17.github.io/shipnotes/
 entries into benefit-first customer language, merges duplicates, and drops
 changes users will never notice. No key? You still get clean grouped notes.
 
-6/ Next: npm publish so the command becomes `npx shipnotes generate`, then a
-GitHub App that opens a release-notes PR automatically on every tag. Free for
-public repos; $9/mo per private repo is the v1 Pro hypothesis.
+6/ Next: a GitHub App that opens a release-notes PR automatically on every
+tag. Free for public repos; $9/mo per private repo is the v1 Pro hypothesis.
 
 7/ Code is open: https://github.com/mfmp17/shipnotes — issues, ideas and
 roasts welcome.
 
 ## Launch checklist
 
-- [ ] Confirm npm publish is done and the short command works:
-      `npx shipnotes generate`
-- [ ] Swap the install command in this file, README and site to
-      `npx shipnotes generate`
-- [ ] Regenerate demo + site (`npm run demo && npm run site`) and push
+- [x] Confirm npm publish is done and the short command works:
+      `npx @mfmp17/shipnotes generate` (2026-07-19)
+- [x] Swap the install command in this file, README and site to
+      `npx @mfmp17/shipnotes generate` (2026-07-19)
+- [x] Regenerate demo + site (`npm run demo && npm run site`) and push
+      (2026-07-19)
 - [ ] Post Show HN between 08:00 and 10:00 ET on a weekday
 - [ ] Post the X thread and reply with the repo link
 - [ ] Schedule Product Hunt for 00:01 PT on a Tuesday/Wednesday

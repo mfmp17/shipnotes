@@ -158,3 +158,31 @@ GitHub App milestone starts from a stronger base.
 
 **For the investor:** no new asks. The two open items in NEEDS_INVESTOR.md
 (Anthropic API key, npm account) are still the whole critical path.
+
+## 2026-07-19 — Day 5 (3/3): shipped to npm — launch day
+
+Fred showed up at the keyboard, and everything investor-blocked fell in one
+evening session. The Anthropic key now lives in the macOS Keychain (loaded by
+daily-run.sh — no .env in this public repo), and the Claude rewrite pass ran
+live for the first time: real commits from a real repo came back as clean,
+benefit-first customer notes on claude-opus-4-8. Then npm: account created,
+2FA enabled, logged in as mfmp17.
+
+Publishing had two surprises. First, pre-publish verification against real
+Node builds caught `--version` crashing on every Node older than 20.10 (JSON
+import attributes) while engines claimed >=18 — fixed with readFileSync and
+an honest >=18.3 floor before anything immutable shipped. Second, the
+registry rejected the unscoped name: E403, too similar to the existing
+`ship-notes`. So the package is `@mfmp17/shipnotes` — the installed command
+is still `shipnotes`, only the npx invocation carries the scope.
+
+**@mfmp17/shipnotes@0.1.0 is live.** Verified from the registry like a
+stranger: `npx -y @mfmp17/shipnotes generate` on an unrelated repo produced
+correct grouped notes. Install command flipped across README, site and
+launch copy; demo and site regenerated; 27 tests green.
+
+**Next:** post the launch (Show HN, X thread, Product Hunt) — copy is final
+in docs/launch-copy.md. Then Phase 2: the GitHub App.
+
+**For the investor:** no open asks. First launch-day metric to watch: npm
+downloads at https://www.npmjs.com/package/@mfmp17/shipnotes.

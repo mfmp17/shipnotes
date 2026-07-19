@@ -1,5 +1,5 @@
 import { parseArgs } from "node:util";
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { basename, resolve } from "node:path";
 import { readCommits, latestTag, isGitRepo } from "./gitlog.js";
 import { groupCommits, isEmpty } from "./group.js";
@@ -61,7 +61,9 @@ export async function main(argv = process.argv.slice(2)) {
     return 0;
   }
   if (opts.version) {
-    const { default: pkg } = await import("../package.json", { with: { type: "json" } });
+    // readFileSync instead of a JSON import: `with { type: "json" }` only
+    // parses at runtime on Node >= 20.10, and engines promises 18.3.
+    const pkg = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
     process.stdout.write(pkg.version + "\n");
     return 0;
   }

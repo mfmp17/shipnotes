@@ -17,8 +17,9 @@
     "site": "node scripts/make-site.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18.3"
   },
+  "author": "mfmp17",
   "keywords": [
     "changelog",
     "release-notes",

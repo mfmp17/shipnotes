@@ -12,7 +12,8 @@ Usage:
   shipnotes generate [options]
 
 Options:
-  --since-tag <tag>   Start of the commit range (defaults to the latest tag)
+  --since-tag <tag>   Start of the commit range (defaults to the latest tag
+                      before --to, so a freshly tagged release gets its notes)
   --from <ref>        Alias for --since-tag (any git ref)
   --to <ref>          End of the commit range (default: HEAD)
   --repo <path>       Path to the git repository (default: current directory)
@@ -81,7 +82,7 @@ export async function main(argv = process.argv.slice(2)) {
   let from = opts["since-tag"] ?? opts.from ?? null;
   let fromNote = "";
   if (!from) {
-    from = latestTag(repo);
+    from = latestTag(repo, opts.to);
     fromNote = from
       ? ` (since latest tag ${from})`
       : " (no tags found — using full history)";

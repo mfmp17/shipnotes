@@ -1,0 +1,140 @@
+name: "ShipNotes release notes"
+description: >-
+  Turn the git history behind a tag into polished, customer-facing release
+  notes, update the changelog, and open a pull request.
+author: "mfmp17"
+branding:
+  icon: "file-text"
+  color: "purple"
+
+inputs:
+  tag:
+    description: >-
+      Tag to generate notes for. Defaults to the ref that triggered the
+      workflow, which is what you want on a tag push.
+    required: false
+    default: ""
+  since-tag:
+    description: >-
+      Start of the commit range. Defaults to the tag right before `tag`,
+      or the full history when this is the first tag.
+    required: false
+    default: ""
+  changelog-file:
+    description: "Changelog file to create or update."
+    required: false
+    default: "CHANGELOG.md"
+  anthropic-api-key:
+    description: >-
+      Anthropic API key for the Claude rewrite pass (pass a repo secret).
+      Without it, notes fall back to heuristic grouping of commit messages.
+    required: false
+    default: ""
+  model:
+    description: "Claude model for the rewrite pass."
+    required: false
+    default: "claude-opus-4-8"
+  open-pr:
+    description: "Open a pull request with the changelog update."
+    required: false
+    default: "true"
+  base-branch:
+    description: "Base branch for the pull request. Defaults to the repo's default branch."
+    required: false
+    default: ""
+  github-token:
+    description: "Token used to push the branch and open the PR."
+    required: false
+    default: ${{ github.token }}
+
+outputs:
+  generated:
+    description: "\"true\" when notes were generated, \"false\" when the range had nothing to publish."
+    value: ${{ steps.notes.outputs.generated }}
+  notes-file:
+    description: "Path to the generated release-notes Markdown file."
+    value: ${{ steps.notes.outputs.notes-file }}
+  pr-url:
+    description: "URL of the opened pull request (empty when open-pr is false or nothing changed)."
+    value: ${{ steps.pr.outputs.pr-url }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install ShipNotes
+      shell: bash
+      run: cd "$GITHUB_ACTION_PATH" && npm ci --omit=dev --no-audit --no-fund
+
+    - name: Generate release notes
+      id: notes
+      shell: bash
+      env:
+        INPUT_TAG: ${{ inputs.tag }}
+        INPUT_SINCE_TAG: ${{ inputs.since-tag }}
+        INPUT_MODEL: ${{ inputs.model }}
+        ANTHROPIC_API_KEY: ${{ inputs.anthropic-api-key }}
+      run: |
+        set -euo pipefail
+        cd "$GITHUB_WORKSPACE"
+        TAG="${INPUT_TAG:-$GITHUB_REF_NAME}"
+        NOTES="$RUNNER_TEMP/shipnotes-notes.md"
+        ARGS=(generate --repo . --to "$TAG" --title "$TAG" --model "$INPUT_MODEL" --output "$NOTES")
+        if [ -n "$INPUT_SINCE_TAG" ]; then ARGS+=(--since-tag "$INPUT_SINCE_TAG"); fi
+        if [ -z "${ANTHROPIC_API_KEY:-}" ]; then ARGS+=(--no-llm); fi
+        node "$GITHUB_ACTION_PATH/bin/shipnotes.js" "${ARGS[@]}"
+        if [ -s "$NOTES" ]; then
+          echo "generated=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "::notice::shipnotes: no customer-visible commits for $TAG — nothing to publish"
+          echo "generated=false" >> "$GITHUB_OUTPUT"
+        fi
+        echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+        echo "notes-file=$NOTES" >> "$GITHUB_OUTPUT"
+
+    - name: Update changelog
+      if: steps.notes.outputs.generated == 'true'
+      shell: bash
+      env:
+        NOTES_FILE: ${{ steps.notes.outputs.notes-file }}
+        CHANGELOG: ${{ inputs.changelog-file }}
+      run: |
+        set -euo pipefail
+        cd "$GITHUB_WORKSPACE"
+        node "$GITHUB_ACTION_PATH/scripts/action/update-changelog.js" "$NOTES_FILE" "$CHANGELOG"
+
+    - name: Open pull request
+      id: pr
+      if: steps.notes.outputs.generated == 'true' && inputs.open-pr == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        CHANGELOG: ${{ inputs.changelog-file }}
+        BASE: ${{ inputs.base-branch }}
+        TAG: ${{ steps.notes.outputs.tag }}
+        NOTES_FILE: ${{ steps.notes.outputs.notes-file }}
+      run: |
+        set -euo pipefail
+        cd "$GITHUB_WORKSPACE"
+        BASE="${BASE:-$(gh repo view --json defaultBranchRef -q .defaultBranchRef.name)}"
+        BRANCH="shipnotes/release-notes-$TAG"
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git checkout -B "$BRANCH"
+        git add -- "$CHANGELOG"
+        if git diff --cached --quiet; then
+          echo "::notice::shipnotes: $CHANGELOG already up to date — no PR needed"
+          exit 0
+        fi
+        git commit -m "docs: release notes for $TAG"
+        git push -f origin "$BRANCH"
+        BODY="$RUNNER_TEMP/shipnotes-pr-body.md"
+        {
+          echo "Automated release notes for \`$TAG\`, generated from the commits behind the tag by [ShipNotes](https://github.com/mfmp17/shipnotes)."
+          echo
+          cat "$NOTES_FILE"
+        } > "$BODY"
+        URL=$(gh pr create --base "$BASE" --head "$BRANCH" \
+                --title "Release notes for $TAG" --body-file "$BODY" \
+              || gh pr view "$BRANCH" --json url -q .url)
+        echo "pr-url=$URL" >> "$GITHUB_OUTPUT"
+        echo "::notice::shipnotes: release-notes PR at $URL"

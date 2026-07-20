@@ -1,0 +1,27 @@
+# Dogfood: ShipNotes generates its own release notes with its own Action.
+# Runs on every version tag, or by hand for any existing tag.
+name: Release notes
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to generate release notes for"
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-notes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the Action needs tags + history, not a shallow clone
+      - uses: ./ # a consumer would write: mfmp17/shipnotes@main
+        with:
+          tag: ${{ inputs.tag || github.ref_name }}

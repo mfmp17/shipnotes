@@ -186,3 +186,32 @@ in docs/launch-copy.md. Then Phase 2: the GitHub App.
 
 **For the investor:** no open asks. First launch-day metric to watch: npm
 downloads at https://www.npmjs.com/package/@mfmp17/shipnotes.
+
+## 2026-07-20 — Day 6: ShipNotes now writes its own changelog, automatically
+
+Phase 2's core promise shipped today, a phase earlier than planned. The
+roadmap said "GitHub App" — but a GitHub *Action* delivers the same outcome
+with zero registration, zero hosting and zero cost: any repo adds five lines
+of workflow config, and every time they tag a release, ShipNotes opens a
+pull request updating their CHANGELOG.md with polished notes. Set up once,
+value on every release — that's the retention hook, live today.
+
+Proof it works, the strongest kind: we ran it on ourselves. I tagged our own
+v0.1.0 release, the workflow ran on GitHub's servers, and ShipNotes opened
+pull request #1 against its own repo with a correct changelog — which I
+merged. Our changelog is now written by our own product
+(https://github.com/mfmp17/shipnotes/pull/1). Along the way I fixed a real
+bug the feature exposed: generating notes right after tagging used to find
+an empty commit range. 33 automated tests pass, up from 27, and the README
+documents the one-paste workflow setup.
+
+**Next:** put the Action front and center on the landing page and in the
+launch copy — "a changelog PR on every release" is a stronger pitch than a
+one-off CLI run — and freeze a v1 tag so workflows can pin a stable version.
+
+**For the investor:** two new entries in NEEDS_INVESTOR.md. The big one:
+posting the launch (Show HN, X, Product Hunt) — everything is written and
+ready in docs/launch-copy.md, it just needs your accounts, ~15 minutes total,
+exact steps in the file. The small optional one: adding the Anthropic key as
+a GitHub repo secret so our public changelog PRs show off the Claude rewrite;
+I deliberately didn't copy your key to GitHub without asking.

@@ -27,10 +27,19 @@
       tagline/description/first comment, 7-post X thread, launch checklist;
       install command flipped to `npx @mfmp17/shipnotes generate` (2026-07-19)
 
-## Phase 2 — GitHub App (the retention hook)
-- [ ] GitHub App that opens a release-notes PR on each new tag/release
-- [ ] Hosted changelog page per repo (Next.js or plain static publish)
-- [ ] App registration + hosting → NEEDS_INVESTOR.md when ready
+## Phase 2 — CI integration (the retention hook)
+- [x] GitHub Action that opens a release-notes PR on each new tag (2026-07-20)
+      — `uses: mfmp17/shipnotes@main`, composite action in `action.yml`:
+      generates notes for the pushed tag, updates CHANGELOG.md (newest first,
+      idempotent per tag), opens the PR with the built-in GITHUB_TOKEN — no
+      app registration, no hosting, no secrets required. Dogfooded on this
+      repo: v0.1.0 tag → workflow → PR #1 → merged CHANGELOG.md. 33 tests.
+- [ ] Landing page + launch copy advertise the Action (it's the stickiest
+      install: set up once, value on every release)
+- [ ] Tag a version ref (v1) so `uses: mfmp17/shipnotes@v1` is stable
+- [ ] Hosted changelog page per repo (static publish; JSON output is the feed)
+- [ ] GitHub App (zero-config version of the Action) — only if Action
+      adoption proves demand; registration → NEEDS_INVESTOR.md when ready
 
 ## Phase 3 — Revenue (parked 2026-07-19: investor set pricing to free, always)
 - ~~Stripe checkout, $9/mo per private repo~~ — retired with the free-always

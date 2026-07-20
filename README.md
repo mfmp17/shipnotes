@@ -21,6 +21,44 @@ npx @mfmp17/shipnotes generate   # notes since your latest tag, to stdout
 (Landing page:
 [mfmp17.github.io/shipnotes](https://mfmp17.github.io/shipnotes/).)
 
+## GitHub Action: a changelog PR on every release
+
+Add one workflow and every tag you push opens a pull request that updates
+`CHANGELOG.md` with that release's notes — newest release on top, re-runs
+for the same tag replace its section instead of duplicating it. This repo
+[dogfoods it](.github/workflows/release-notes.yml)
+([example PR](https://github.com/mfmp17/shipnotes/pull/1)).
+
+```yaml
+# .github/workflows/release-notes.yml
+name: Release notes
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  release-notes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history + tags, not a shallow clone
+      - uses: mfmp17/shipnotes@main
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }} # optional
+```
+
+One repo setting is required for the PR step: **Settings → Actions →
+General → Allow GitHub Actions to create and approve pull requests**.
+Leave `anthropic-api-key` out and the notes use heuristic grouping only.
+
+Inputs: `tag` (default: the pushed tag), `since-tag` (default: the tag
+before it), `changelog-file` (default `CHANGELOG.md`), `model`, `open-pr`
+(set `"false"` to just generate the notes file), `base-branch`,
+`github-token`. Outputs: `generated`, `notes-file`, `pr-url`.
+
 Real output from the Express repo (heuristic mode, no API key needed):
 
 ```markdown
@@ -59,7 +97,8 @@ shipnotes generate --since-tag v2.3.0 -o RELEASE_NOTES.md
 ```
 shipnotes generate [options]
 
-  --since-tag <tag>   Start of the commit range (defaults to the latest tag)
+  --since-tag <tag>   Start of the commit range (defaults to the latest tag
+                      before --to, so a freshly tagged release gets its notes)
   --from <ref>        Alias for --since-tag (any git ref)
   --to <ref>          End of the commit range (default: HEAD)
   --repo <path>       Path to the git repository (default: current directory)
@@ -74,7 +113,7 @@ shipnotes generate [options]
 
 `--format json` emits the same grouped notes as machine-readable JSON
 (`{ title, date, sections: [{ id, title, entries }] }`) for automation such as
-the planned GitHub App and hosted changelog.
+the GitHub Action above and the planned hosted changelog.
 
 ## How grouping works
 

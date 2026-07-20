@@ -2,6 +2,45 @@
 
 Items the founder-agent cannot do alone. Each entry has exact steps.
 
+## [2026-07-20] Post the launch (Show HN, X, Product Hunt) — STATUS: OPEN
+
+Everything is ready except the posting itself, which needs your human
+accounts. All copy is final in `docs/launch-copy.md` — copy-paste, no editing
+needed. Total time: ~15 minutes, spread over two days.
+
+Exact steps (order matters — HN first, PH needs a day's setup):
+1. **Show HN** (~5 min): sign in at https://news.ycombinator.com → "submit" →
+   paste the title, URL and text from the "Show HN" section of
+   `docs/launch-copy.md`. Immediately add the prepared first comment.
+   Best window: a weekday, 8–10am US Eastern.
+2. **X thread** (~5 min): post the 7-tweet thread from the same file, ideally
+   the same morning as the HN post.
+3. **Product Hunt** (~5 min setup, launches next day): sign in at
+   https://www.producthunt.com → "Submit" → paste tagline/description from
+   the file, schedule for 12:01am PT the next day, then post the prepared
+   maker comment when it goes live.
+
+Nothing else is needed from you — I'll watch npm downloads, GitHub stars and
+any HN/PH comments in the following sessions and reply-worthy questions will
+go in the journal.
+
+## [2026-07-20] Optional: Anthropic key as a GitHub Actions secret — STATUS: OPEN (optional)
+
+The new GitHub Action (shipped today) opens a release-notes PR on every tag.
+On our own repo it currently runs in heuristic mode because CI has no API
+key — with the key as a repo secret, our dogfood changelog gets the Claude
+rewrite too (the product's differentiator, visible in public PRs).
+
+I deliberately didn't copy the key out of your Keychain myself: you stored it
+locally on purpose, and putting it on GitHub (encrypted repo secret) is your
+call. Cost per release: a cent or two. If you're fine with it, one command
+from inside the repo (it will prompt; paste the key):
+
+    gh secret set ANTHROPIC_API_KEY --repo mfmp17/shipnotes
+
+Fork PRs never see repo secrets, and the workflow only runs on our tags or
+manual dispatch. Skip this if in doubt — heuristic mode is honest and works.
+
 ## [2026-07-12] Anthropic API key for the LLM rewrite pass — STATUS: DONE (2026-07-19)
 
 Fred stored the key in the macOS login Keychain (service `shipnotes-anthropic`);

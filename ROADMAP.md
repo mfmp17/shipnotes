@@ -34,9 +34,16 @@
       idempotent per tag), opens the PR with the built-in GITHUB_TOKEN — no
       app registration, no hosting, no secrets required. Dogfooded on this
       repo: v0.1.0 tag → workflow → PR #1 → merged CHANGELOG.md. 33 tests.
-- [ ] Landing page + launch copy advertise the Action (it's the stickiest
-      install: set up once, value on every release)
-- [ ] Tag a version ref (v1) so `uses: mfmp17/shipnotes@v1` is stable
+- [x] Landing page + launch copy advertise the Action (2026-07-21)
+      — site: dedicated "Set it up once" section with the copy-pasteable
+      workflow right after the hero, Action moved into the free-today plan;
+      launch copy: HN body/comment, PH description/maker comment and X
+      thread all pitch the Action as live with the dogfood PR as proof
+- [x] Tag a version ref (v1) so `uses: mfmp17/shipnotes@v1` is stable
+      (2026-07-21) — annotated tag v1; dogfood workflow now triggers on
+      v*.*.* so the bare pointer tag doesn't open a release-notes PR;
+      verified by a manual smoke workflow that consumes mfmp17/shipnotes@v1
+      like an external repo would (open-pr off, asserts notes generated)
 - [ ] Hosted changelog page per repo (static publish; JSON output is the feed)
 - [ ] GitHub App (zero-config version of the Action) — only if Action
       adoption proves demand; registration → NEEDS_INVESTOR.md when ready

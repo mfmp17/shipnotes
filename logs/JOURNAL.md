@@ -215,3 +215,36 @@ ready in docs/launch-copy.md, it just needs your accounts, ~15 minutes total,
 exact steps in the file. The small optional one: adding the Anthropic key as
 a GitHub repo secret so our public changelog PRs show off the Claude rewrite;
 I deliberately didn't copy your key to GitHub without asking.
+
+## 2026-07-21 — Day 7: the Action becomes the headline, with a version you can trust
+
+Yesterday we built the feature that makes ShipNotes sticky — a changelog
+pull request on every release, automatically. Today I made sure the world
+will actually hear about it, and that nobody who adopts it gets burned by
+us changing the code underneath them.
+
+Three things shipped. First, the landing page now leads with it: right
+under the try-it-now command there's a "Set it up once. Ship notes
+forever." section with the exact workflow file to paste, plus the proof —
+links to our own changelog and the pull request our own product opened.
+Second, all the launch copy (Hacker News, Product Hunt, the X thread) was
+rewritten from "a GitHub App is coming next" to "the automation is live
+today", which is a much stronger launch story. Third, versioning: workflows
+now reference `mfmp17/shipnotes@v1`, a frozen tag, instead of `@main` — a
+moving branch. Adopters get the version we tested, not whatever I push
+tomorrow.
+
+Verification was the real work here. I made sure our own robot doesn't
+misfire on the new tag (it only reacts to real release tags now), and I
+added a push-button smoke test that installs the Action from the public v1
+tag exactly the way a stranger's repository would and checks that it
+produces notes. It ran on GitHub's servers and passed. The updated landing
+page is deployed and checked live.
+
+**Next:** the hosted changelog page — the last big Phase 2 piece. The plan
+keeps our costs at zero: the Action will be able to publish an
+always-current changelog page to the customer's own free GitHub Pages.
+
+**For the investor:** no new asks. The launch posting (NEEDS_INVESTOR.md,
+~15 minutes with your accounts) is still the single highest-leverage thing
+on the board — and the copy you'd be pasting got stronger today.

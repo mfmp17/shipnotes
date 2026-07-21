@@ -45,7 +45,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # full history + tags, not a shallow clone
-      - uses: mfmp17/shipnotes@main
+      - uses: mfmp17/shipnotes@v1
         with:
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }} # optional
 ```

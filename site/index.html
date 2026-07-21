@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ShipNotes — release notes, straight from your git log</title>
-<meta name="description" content="ShipNotes reads the commits since your last release and turns them into polished, customer-facing release notes. One command, Markdown or HTML, optional Claude rewrite.">
+<meta name="description" content="ShipNotes turns the commits since your last release into polished, customer-facing release notes. One command locally, or a GitHub Action that opens a changelog PR on every tag. Free and open source.">
 <style>
   :root {
     --bg: #0d1117;
@@ -99,6 +99,27 @@
   .browser iframe { display: block; width: 100%; height: 460px; border: 0; background: #fff; }
   .example-note { color: var(--dim); font-size: .85rem; margin-top: .75rem; }
 
+  .codeblock {
+    position: relative; text-align: left;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    margin: 0;
+  }
+  .codeblock pre {
+    margin: 0; padding: 1.1rem 1.25rem; overflow-x: auto;
+    font-family: var(--mono); font-size: .85rem; line-height: 1.55;
+  }
+  .codeblock .c { color: var(--dim); }
+  .codeblock .k { color: var(--blue); }
+  .codeblock .v { color: var(--orange); }
+  .codeblock button {
+    position: absolute; top: .6rem; right: .6rem;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--dim); font-size: .78rem; padding: .25rem .6rem; cursor: pointer;
+    font-family: var(--mono);
+  }
+  .codeblock button:hover { color: var(--fg); border-color: var(--dim); }
+  .action-note { color: var(--dim); font-size: .85rem; margin-top: .75rem; }
+
   .rewrite { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   @media (max-width: 700px) { .rewrite { grid-template-columns: 1fr; } }
   .pane {
@@ -162,12 +183,48 @@
       <button type="button" onclick="copyCmd(this)">copy</button>
     </div>
     <p class="fineprint">Free &amp; open source (MIT) · runs locally · no signup, no telemetry</p>
+    <p class="fineprint">Using GitHub? <a href="#action">Add the Action</a> and get a changelog PR on every release — automatically.</p>
 
     <div class="demo">
       <img src="demo.svg" width="620"
            alt="Animated terminal demo: shipnotes generate groups commits since the latest tag into Breaking Changes, Features, Fixes and Improvements">
     </div>
   </div>
+
+  <section id="action">
+    <h2>Set it up once. Ship notes forever.</h2>
+    <p class="lead">
+      The GitHub Action runs ShipNotes for you: every time you push a release
+      tag, it opens a pull request updating your <code style="font-family:var(--mono);font-size:.9em">CHANGELOG.md</code>
+      with that release's notes. No hosting, no signup, no secrets required —
+      it uses the workflow's built-in token.
+    </p>
+    <figure class="codeblock">
+      <button type="button" onclick="copyBlock(this)">copy</button>
+      <pre id="action-yaml"><span class="c"># .github/workflows/release-notes.yml</span>
+<span class="k">name:</span> Release notes
+<span class="k">on:</span>
+  <span class="k">push:</span>
+    <span class="k">tags:</span> [<span class="v">"v*"</span>]
+<span class="k">permissions:</span>
+  <span class="k">contents:</span> write
+  <span class="k">pull-requests:</span> write
+<span class="k">jobs:</span>
+  <span class="k">release-notes:</span>
+    <span class="k">runs-on:</span> ubuntu-latest
+    <span class="k">steps:</span>
+      - <span class="k">uses:</span> actions/checkout@v4
+        <span class="k">with:</span>
+          <span class="k">fetch-depth:</span> 0 <span class="c"># full history + tags, not a shallow clone</span>
+      - <span class="k">uses:</span> mfmp17/shipnotes@v1</pre>
+    </figure>
+    <p class="action-note">
+      One repo setting to allow the PR step: Settings → Actions → General →
+      “Allow GitHub Actions to create and approve pull requests”.
+      We eat our own dogfood — <a href="https://github.com/mfmp17/shipnotes/blob/main/CHANGELOG.md">our changelog</a>
+      is written by this Action (<a href="https://github.com/mfmp17/shipnotes/pull/1">see the PR it opened</a>).
+    </p>
+  </section>
 
   <section>
     <h2>How it works</h2>
@@ -247,17 +304,18 @@
         <div class="price">$0</div>
         <ul>
           <li>Full CLI — grouping, Markdown &amp; HTML output</li>
+          <li><a href="#action">GitHub Action</a>: a changelog PR opens automatically on every release tag</li>
           <li>Claude rewrite with your own API key</li>
           <li>Unlimited repos, public or private</li>
-          <li>MIT licensed, runs entirely on your machine</li>
+          <li>MIT licensed, no signup, no telemetry</li>
         </ul>
       </div>
       <div class="plan">
         <h3>Coming next <span class="soon">also free</span></h3>
         <div class="price">$0<span> — still free</span></div>
         <ul>
-          <li>GitHub App: a release-notes PR opens automatically on every tag</li>
           <li>Hosted, always-current public changelog page</li>
+          <li>GitHub App: the Action's zero-config sibling</li>
           <li>Public or private repos — no paid tier</li>
         </ul>
       </div>
@@ -273,12 +331,17 @@
 </footer>
 
 <script>
+function flashCopied(btn) {
+  btn.textContent = "copied!";
+  setTimeout(() => { btn.textContent = "copy"; }, 1500);
+}
 function copyCmd(btn) {
   navigator.clipboard.writeText(document.getElementById("install-cmd").textContent)
-    .then(() => {
-      btn.textContent = "copied!";
-      setTimeout(() => { btn.textContent = "copy"; }, 1500);
-    });
+    .then(() => flashCopied(btn));
+}
+function copyBlock(btn) {
+  navigator.clipboard.writeText(document.getElementById("action-yaml").textContent)
+    .then(() => flashCopied(btn));
 }
 </script>
 

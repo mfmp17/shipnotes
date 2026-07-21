@@ -25,6 +25,11 @@ set ANTHROPIC_API_KEY, an optional Claude pass rewrites the grouped entries
 into benefit-first customer language and merges duplicates — without the key
 you still get the grouped notes.
 
+There's also a GitHub Action (`uses: mfmp17/shipnotes@v1`): push a release
+tag and it opens a PR updating your CHANGELOG.md with that release's notes.
+Set it up once and the changelog maintains itself — ShipNotes' own changelog
+is written this way, by its own Action.
+
 The site demo and example page are generated from real CLI runs at build time,
 so they cannot drift from what the tool actually outputs:
 https://mfmp17.github.io/shipnotes/
@@ -41,8 +46,12 @@ Happy to answer questions. A few implementation notes:
   you can host anywhere.
 - The LLM rewrite is strictly optional and fails open: API errors fall back to
   the heuristic grouping rather than losing your notes.
-- Next step is a GitHub App that opens a release-notes PR on each tag, so the
-  notes write themselves as part of the release flow.
+- The Action is a composite action, no hosting or registration behind it: it
+  runs the same CLI on the runner and opens the PR with the workflow's own
+  GITHUB_TOKEN. Proof it works: our repo's CHANGELOG.md is maintained by it
+  (https://github.com/mfmp17/shipnotes/pull/1 was its first PR).
+- Next step is a hosted always-current changelog page (the CLI already emits
+  JSON as the feed for it).
 
 ## Product Hunt
 
@@ -53,17 +62,19 @@ Description:
 ShipNotes turns the commits since your last release into polished,
 customer-facing release notes. One local command groups Breaking Changes,
 Features, Fixes and Improvements, drops internal noise, and outputs Markdown
-or a ready-to-host HTML page. Free, open source, no signup; optional Claude
-rewrite with your own API key.
+or a ready-to-host HTML page — or add the GitHub Action and get a changelog
+PR automatically on every release tag. Free, open source, no signup;
+optional Claude rewrite with your own API key.
 
 First comment:
 
 Maker here. ShipNotes started from a simple itch: we shipped constantly, but
 writing release notes was always the task that got skipped. The CLI is the
 free wedge: point it at a repo and it produces publishable notes from the git
-history you already have. The demo and example on the landing page are real
-CLI output regenerated at build time. Coming next is the automation layer: a
-GitHub App that opens a release-notes PR on every tag, plus a hosted
+history you already have. The automation layer is live too: a GitHub Action
+(`uses: mfmp17/shipnotes@v1`) that opens a changelog PR on every release tag —
+our own changelog is written by it. The demo and example on the landing page
+are real CLI output regenerated at build time. Coming next: a hosted,
 always-current changelog page — also free. ShipNotes is free, always.
 Feedback very welcome.
 
@@ -90,11 +101,16 @@ regenerated every build: https://mfmp17.github.io/shipnotes/
 entries into benefit-first customer language, merges duplicates, and drops
 changes users will never notice. No key? You still get clean grouped notes.
 
-6/ Next: a GitHub App that opens a release-notes PR automatically on every
-tag, plus a hosted always-current changelog. Free — always, public or private.
+6/ Don't want to run anything? Add the GitHub Action once:
 
-7/ Code is open: https://github.com/mfmp17/shipnotes — issues, ideas and
-roasts welcome.
+uses: mfmp17/shipnotes@v1
+
+Every release tag you push opens a PR updating your CHANGELOG.md. Our own
+changelog is maintained this way — by our own Action.
+
+7/ Everything is free, always — public or private repos, CLI and Action, and
+the hosted changelog page that's coming next. Code is MIT:
+https://github.com/mfmp17/shipnotes — issues, ideas and roasts welcome.
 
 ## Launch checklist
 
@@ -104,6 +120,8 @@ roasts welcome.
       `npx @mfmp17/shipnotes generate` (2026-07-19)
 - [x] Regenerate demo + site (`npm run demo && npm run site`) and push
       (2026-07-19)
+- [x] Copy + site advertise the GitHub Action; `v1` tag frozen so
+      `uses: mfmp17/shipnotes@v1` is stable (2026-07-21)
 - [ ] Post Show HN between 08:00 and 10:00 ET on a weekday
 - [ ] Post the X thread and reply with the repo link
 - [ ] Schedule Product Hunt for 00:01 PT on a Tuesday/Wednesday

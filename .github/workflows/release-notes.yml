@@ -4,7 +4,9 @@ name: Release notes
 
 on:
   push:
-    tags: ["v*"]
+    # v*.*.* not v*: the bare v1 tag is the Action's moving version pointer
+    # (uses: mfmp17/shipnotes@v1), not a product release.
+    tags: ["v*.*.*"]
   workflow_dispatch:
     inputs:
       tag:
@@ -22,6 +24,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # the Action needs tags + history, not a shallow clone
-      - uses: ./ # a consumer would write: mfmp17/shipnotes@main
+      - uses: ./ # a consumer would write: mfmp17/shipnotes@v1
         with:
           tag: ${{ inputs.tag || github.ref_name }}

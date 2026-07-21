@@ -1,0 +1,33 @@
+# Manual smoke test: consume the published Action the way a stranger would
+# (`uses: mfmp17/shipnotes@v1`, not `uses: ./`) and assert it generates notes.
+# Run it after moving the v1 pointer to make sure the tagged Action works.
+name: Action smoke test (v1)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: notes
+        uses: mfmp17/shipnotes@v1
+        with:
+          tag: v0.1.0
+          open-pr: "false"
+      - name: Assert notes were generated
+        env:
+          GENERATED: ${{ steps.notes.outputs.generated }}
+          NOTES_FILE: ${{ steps.notes.outputs.notes-file }}
+        run: |
+          set -euo pipefail
+          test "$GENERATED" = "true"
+          test -s "$NOTES_FILE"
+          echo "--- generated notes ---"
+          cat "$NOTES_FILE"
